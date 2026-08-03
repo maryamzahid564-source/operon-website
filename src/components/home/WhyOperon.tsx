@@ -1,45 +1,49 @@
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
-const pillars = [
-  {
-    figure: "80+",
-    title: "Group heritage",
-    body: "Decades of operational discipline from a group with a diversified regional footprint, applied to every asset we manage.",
-  },
-  {
-    figure: "2008",
-    title: "Local expertise",
-    body: "Operating across the UAE since 2008, with an on-the-ground understanding of Dubai's regulatory and climate demands.",
-  },
-  {
-    figure: "100+",
-    title: "Scale & reach",
-    body: "A portfolio spanning residential, commercial, retail and leisure assets, managed to a single, consistent standard.",
-  },
+const chain = [
+  { name: "Khazanah Nasional Berhad", detail: "Malaysia's sovereign wealth fund" },
+  { name: "UEM Group Berhad", detail: "Infrastructure group" },
+  { name: "UEM Edgenta Berhad", detail: "Asset management & infrastructure solutions" },
+  { name: "Operon Middle East", detail: "UAE facilities management" },
 ];
 
 export default function WhyOperon() {
   return (
-    <section className="bg-charcoal py-24 text-cream sm:py-28">
+    <section className="bg-black py-24 text-white sm:py-32">
       <Container>
-        <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">
-            Why Operon
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-4xl">
-            Built for owners who measure everything.
-          </h2>
-        </div>
+        <Reveal>
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              Our foundation
+            </p>
+            <h2 className="mt-5 text-3xl font-black leading-tight sm:text-4xl">
+              Local delivery. Global standards.
+              <br />
+              Institutional strength.
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-white/60">
+              Operon Middle East combines local facilities management
+              expertise with the governance, engineering capability and
+              international standards of UEM Edgenta, UEM Group and Khazanah
+              Nasional Berhad.
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
-          {pillars.map((p) => (
-            <div key={p.title} className="border-t border-cream/15 pt-6">
-              <p className="font-serif text-4xl text-gold">{p.figure}</p>
-              <h3 className="mt-4 text-lg font-medium text-cream">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-cream/60">{p.body}</p>
-            </div>
-          ))}
-        </div>
+        <Reveal delay={120}>
+          <div className="mt-16 flex flex-col divide-y divide-white/10 border-t border-white/10 sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0">
+            {chain.map((c, i) => (
+              <div key={c.name} className="flex-1 py-6 pr-6 sm:py-2 sm:pl-8 sm:first:pl-0">
+                <span className="text-xs font-bold text-green">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 text-base font-bold leading-snug">{c.name}</p>
+                <p className="mt-1.5 text-sm text-white/50">{c.detail}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

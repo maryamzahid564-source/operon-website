@@ -1,199 +1,282 @@
 export type Service = {
   slug: string;
   name: string;
-  shortName: string;
   tagline: string;
   summary: string;
   description: string;
   capabilities: string[];
-  image: string;
 };
 
 export const services: Service[] = [
   {
     slug: "hard-fm",
     name: "Hard FM",
-    shortName: "Hard FM",
-    tagline: "The built environment, engineered to perform",
+    tagline: "Keeping the built environment running.",
     summary:
-      "Mechanical, electrical and structural maintenance that protects the value of every asset in your portfolio.",
+      "MEP, BMS and civil maintenance that keeps critical building systems safe, compliant and running.",
     description:
-      "Our Hard FM teams manage the technical backbone of your assets — MEP systems, building fabric, life safety and critical infrastructure — with a planned maintenance discipline built for the demands of Dubai's climate and regulatory environment. We combine in-house engineering talent with statutory compliance rigor, so uptime and safety are never left to chance.",
+      "Our Hard FM teams maintain the technical systems that keep a building operating — from HVAC and electrical to fire safety and BMS. Planned preventive maintenance is backed by a responsive on-site team, so faults are caught early and downtime stays low.",
     capabilities: [
-      "Planned & reactive MEP maintenance",
-      "Building fabric & civil works",
-      "Fire & life safety systems",
-      "Critical infrastructure & BMS",
-      "Statutory compliance & inspections",
-      "24/7 helpdesk & emergency response",
+      "HVAC repair & maintenance",
+      "Electrical repair & maintenance",
+      "Plumbing & mechanical pumps maintenance",
+      "Fire alarm & fire fighting system maintenance",
+      "Generator maintenance",
+      "Elevator & escalator maintenance",
+      "Gate barrier, access control & roller shutter maintenance",
+      "CCTV & BMS maintenance",
+      "Central gas system maintenance",
+      "Civil, carpentry & masonry repair",
     ],
-    image: "/images/hard-fm.jpg",
   },
   {
     slug: "soft-fm",
     name: "Soft FM",
-    shortName: "Soft FM",
-    tagline: "Every day, an exceptional experience",
+    tagline: "Every day, a well-kept building.",
     summary:
-      "Cleaning, security, front-of-house and landscaping delivered with a service standard your occupants notice.",
+      "Cleaning, security, landscaping and pest control delivered by teams who show up, every day.",
     description:
-      "Soft FM is where a facilities partner is judged every single day. We deliver cleaning, security, concierge, landscaping and pest control programs built around measurable service levels — so the experience of a building matches the ambition behind it.",
+      "Soft FM is where a facilities partner is judged daily. Our teams handle cleaning, security, landscaping and pest control to a consistent standard, so the buildings we manage look and feel cared for at all times.",
     capabilities: [
-      "Cleaning & hygiene services",
-      "Manned security & access control",
-      "Concierge & front-of-house",
-      "Landscaping & horticulture",
-      "Pest management",
+      "General cleaning maintenance",
+      "External facade & glass cleaning",
       "Waste management",
+      "Pest control services",
+      "Swimming pool cleaning & maintenance",
+      "Water tank cleaning",
+      "Landscaping maintenance",
+      "Security services",
     ],
-    image: "/images/soft-fm.jpg",
   },
   {
     slug: "energy-management",
     name: "Energy Management",
-    shortName: "Energy",
-    tagline: "Efficiency as a discipline, not an initiative",
+    tagline: "Efficiency built into daily operations.",
     summary:
-      "Metering, audits and retrofit programs that cut consumption and carbon across your portfolio.",
+      "Energy monitoring, retrofit programmes and building certifications that reduce consumption over time.",
     description:
-      "We treat energy as a managed asset. From metering and audits to retrofit and renewable integration, our energy management practice identifies where consumption, cost and carbon can be reduced — and delivers the program to capture it, backed by measurement and verification you can report on.",
+      "We help asset owners understand and reduce energy consumption — through monitoring, retrofit programmes and support toward green building certification. Sustainability is treated as an operating discipline, not a one-off project.",
     capabilities: [
-      "Energy audits & benchmarking",
-      "Retrofit & optimisation programs",
-      "Sub-metering & monitoring",
-      "Sustainability & ESG reporting",
-      "Renewables integration",
-      "Utility & tariff management",
+      "Energy monitoring",
+      "Energy retrofit programmes",
+      "Renewable technologies",
+      "Building audits",
+      "Green building certification support (LEED, SPIRE, WELL)",
+      "Sustainability projects",
     ],
-    image: "/images/energy.jpg",
   },
   {
     slug: "technology-solutions",
     name: "Technology Solutions",
-    shortName: "Technology",
-    tagline: "Data that runs the building for you",
+    tagline: "Real-time visibility across every building.",
     summary:
-      "CAFM, IoT sensors and smart building platforms that turn facilities data into decisions.",
+      "A CAFM platform, IoT sensors and a command centre give real-time visibility across 300+ buildings.",
     description:
-      "Our technology practice deploys the CAFM, IoT and smart building platforms that give asset owners real-time visibility and control. Sensors, dashboards and automation reduce manual overhead and surface the insight that keeps a portfolio running ahead of problems, not behind them.",
+      "Our CAFM platform integrates asset management, maintenance, work orders, inspections, utilities, inventory and sustainability data into a single system — giving our teams and clients real-time visibility across the UAE portfolio, with audit-ready reporting on demand.",
     capabilities: [
-      "CAFM & work order platforms",
-      "IoT sensors & smart monitoring",
-      "Building management system integration",
-      "Data analytics & reporting dashboards",
-      "Mobile workforce applications",
-      "Predictive maintenance tools",
+      "CAFM platform",
+      "Command and Control Centre",
+      "IoT sensors & real-time monitoring",
+      "Cleaning robotics",
+      "Predictive maintenance insights",
+      "Audit-ready reporting",
     ],
-    image: "/images/technology.jpg",
   },
   {
     slug: "golf-course-management",
     name: "Golf Course Management",
-    shortName: "Golf Course",
-    tagline: "Championship conditions, year-round",
+    tagline: "Dependable facilities support for golf & leisure.",
     summary:
-      "Agronomy, irrigation and turf management for golf courses that demand a world-class standard.",
+      "Full facilities support for golf clubs and leisure destinations — built around guest experience and event readiness.",
     description:
-      "Golf course management in the region's climate is a specialist discipline. Our agronomy and turf teams manage irrigation, course maintenance and playing surface quality to championship standards, protecting one of the most visible and scrutinised assets a developer or club can own.",
+      "We provide integrated facilities management for golf clubs and leisure destinations, including Emirates Golf Club and Topgolf Dubai — covering MEP and HVAC, housekeeping, landscaping and specialist equipment, with the front-of-house support and event-day readiness these venues depend on.",
     capabilities: [
-      "Agronomy & turf management",
-      "Irrigation system management",
-      "Course maintenance programs",
-      "Water resource management",
-      "Landscape & ecology management",
-      "Tournament-standard presentation",
+      "MEP & HVAC maintenance",
+      "Housekeeping & cleaning",
+      "Landscaping maintenance",
+      "Specialist equipment maintenance",
+      "Front-of-house & guest experience support",
+      "Event-day readiness",
     ],
-    image: "/images/golf.jpg",
   },
   {
     slug: "consultancy",
     name: "Consultancy",
-    shortName: "Consultancy",
-    tagline: "Strategy before you sign a single contract",
+    tagline: "Strategy before a contract is signed.",
     summary:
-      "Advisory on FM strategy, transition and asset lifecycle planning for owners and developers.",
+      "Advisory on FM strategy, asset audits and fit-out project management for owners and developers.",
     description:
-      "Before a single service contract is signed, the right FM strategy determines the lifetime cost of an asset. Our consultancy practice advises developers, owners and operators on FM readiness, transition planning, service specification and lifecycle asset strategy — informed by managing over 100 assets ourselves.",
+      "Our consultancy practice advises owners and developers on FM strategy, building audits and fit-out project management — informed by the operational experience of running facilities management across the UAE ourselves.",
     capabilities: [
-      "FM strategy & transition planning",
-      "Asset lifecycle & capital planning",
-      "Service specification & procurement support",
-      "Operational readiness & handover",
-      "Benchmarking & performance audits",
-      "Contract & vendor management advisory",
+      "FM strategy consultancy",
+      "Managing partner consultancy",
+      "Asset & engineering consultancy",
+      "Building audits",
+      "Fit-out project management",
     ],
-    image: "/images/consultancy.jpg",
   },
 ];
 
 export const stats = [
-  { value: "100+", label: "Managed assets across the UAE" },
-  { value: "80+", label: "Years of group experience" },
-  { value: "2008", label: "Operating in the UAE since" },
-  { value: "24/7", label: "Helpdesk & emergency response" },
+  { value: "300+", label: "Buildings managed across the UAE" },
+  { value: "2008", label: "Established in the UAE" },
+  { value: "80+", label: "Years of UEM Edgenta Group experience" },
+  { value: "6", label: "Countries in the UEM Edgenta Group" },
 ];
 
-export const awards = [
-  { name: "MEFMA Award", detail: "Facilities Management Excellence" },
-  { name: "Great Place to Work", detail: "Certified, UAE" },
-  { name: "ISO 9001 / 14001 / 45001", detail: "Integrated Management System" },
-  { name: "RoSPA", detail: "Health & Safety Achievement" },
+export const credentials = [
+  { name: "MEFMA", detail: "Corporate Member" },
+  { name: "BICSc", detail: "Corporate Member" },
+  { name: "ISO 9001 · 14001 · 45001", detail: "Bureau Veritas Certification" },
+  { name: "ASHRAE", detail: "" },
 ];
 
-export const caseStudies = [
+export const values = [
+  { letter: "F", title: "Future Focused" },
+  { letter: "I", title: "Imagine New Ways" },
+  { letter: "R", title: "Respect for All" },
+  { letter: "S", title: "Solutioning Mindset" },
+  { letter: "T", title: "True to Our Word" },
+];
+
+export const clients = [
+  "wasl",
+  "Emirates Golf Club",
+  "Topgolf Dubai",
+  "ENBD REIT",
+  "Expo City Dubai",
+  "Jumeirah Golf Estates",
+  "Engineering Office (EO)",
+  "KAIZEN",
+  "Seddiqi Holding",
+  "Brands For Less",
+];
+
+export type CaseStudy = {
+  slug: string;
+  title: string;
+  sector: string;
+  location: string;
+  scope: string[];
+  operationalFocus: string[];
+  valueDelivered: string;
+};
+
+export const caseStudies: CaseStudy[] = [
   {
-    slug: "premium-residential-tower",
-    title: "Integrated FM for a premium residential tower",
-    sector: "Residential",
-    location: "Dubai Marina",
-    summary:
-      "Full Hard & Soft FM mobilisation for a landmark residential tower, achieving a 98% helpdesk SLA within the first quarter.",
-    services: ["Hard FM", "Soft FM"],
-  },
-  {
-    slug: "mixed-use-retail-destination",
-    title: "Energy retrofit for a mixed-use retail destination",
-    sector: "Retail",
-    location: "Downtown Dubai",
-    summary:
-      "A portfolio-wide energy audit and retrofit programme delivering a 22% reduction in utility consumption.",
-    services: ["Energy Management", "Technology Solutions"],
-  },
-  {
-    slug: "championship-golf-resort",
-    title: "Agronomy programme for a championship golf resort",
-    sector: "Leisure",
+    slug: "wasl-village",
+    title: "WASL Village",
+    sector: "Master Communities",
     location: "Dubai",
-    summary:
-      "Year-round turf and irrigation management maintaining tournament-standard playing conditions.",
-    services: ["Golf Course Management"],
+    scope: ["MEP & HVAC", "Housekeeping", "Landscaping", "Specialist equipment"],
+    operationalFocus: [
+      "Preventive maintenance",
+      "Residence experience",
+      "Event readiness",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Consistent operations, reliable asset performance and responsive support across 62 residential buildings and shared community facilities.",
   },
   {
-    slug: "corporate-headquarters-campus",
-    title: "Smart building transition for a corporate campus",
+    slug: "emirates-golf-club-topgolf",
+    title: "Emirates Golf Club & Topgolf",
+    sector: "Leisure & Hospitality",
+    location: "Dubai",
+    scope: [
+      "MEP & HVAC",
+      "Housekeeping",
+      "Landscaping",
+      "Specialist equipment",
+      "Front-of-house support",
+    ],
+    operationalFocus: [
+      "Preventive maintenance",
+      "Guest experience",
+      "Event readiness",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Reliable operations, high presentation standards and seamless support during peak periods and major events.",
+  },
+  {
+    slug: "al-thuraya-tower",
+    title: "Al Thuraya Tower",
     sector: "Commercial",
-    location: "Business Bay",
-    summary:
-      "CAFM and IoT deployment giving facilities leadership real-time visibility across a multi-building campus.",
-    services: ["Technology Solutions", "Consultancy"],
+    location: "Dubai",
+    scope: [
+      "MEP & HVAC",
+      "BMS",
+      "Elevators",
+      "Fire systems",
+      "Cleaning",
+      "Security",
+      "Front-of-house support",
+    ],
+    operationalFocus: [
+      "Preventive maintenance",
+      "Asset reliability",
+      "Occupant experience",
+      "Compliance",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Consistent building performance, well-maintained common areas and responsive operational support across a high-occupancy commercial tower.",
   },
   {
-    slug: "master-planned-community",
-    title: "FM strategy for a master-planned community",
-    sector: "Community",
-    location: "Dubai South",
-    summary:
-      "Advisory on operational readiness and service specification ahead of a phased community handover.",
-    services: ["Consultancy"],
-  },
-  {
-    slug: "healthcare-facility-hard-fm",
-    title: "Critical infrastructure support for a healthcare facility",
-    sector: "Healthcare",
+    slug: "abu-dhabi-equestrian-club",
+    title: "Abu Dhabi Equestrian Club",
+    sector: "Specialised Facilities",
     location: "Abu Dhabi",
-    summary:
-      "24/7 critical systems maintenance and statutory compliance for a live, fully operational hospital site.",
-    services: ["Hard FM"],
+    scope: [
+      "MEP & HVAC",
+      "Cleaning",
+      "Landscaping",
+      "Pest control",
+      "Front-of-house support",
+      "Specialist facilities maintenance",
+    ],
+    operationalFocus: [
+      "Asset reliability",
+      "Event readiness",
+      "Safety and compliance",
+      "Guest experience",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Consistent operational support, high presentation standards and dependable facilities performance across equestrian, hospitality and public-facing areas.",
+  },
+  {
+    slug: "berkeley-place-sobha-hartland",
+    title: "Berkeley Place, Sobha Hartland",
+    sector: "High-end Residence",
+    location: "Dubai",
+    scope: ["MEP & HVAC", "Housekeeping", "Preventive maintenance", "Common area maintenance"],
+    operationalFocus: [
+      "Resident experience",
+      "Asset reliability",
+      "Building presentation",
+      "Safety and compliance",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Reliable building operations, immaculate shared spaces and responsive facilities support that preserve the quality, comfort and value of a premium residential development.",
+  },
+  {
+    slug: "brands-for-less",
+    title: "Brands For Less",
+    sector: "Retail",
+    location: "UAE-wide",
+    scope: ["MEP & HVAC", "Cleaning", "Lighting"],
+    operationalFocus: [
+      "Preventive maintenance",
+      "Store readiness",
+      "Safety and compliance",
+      "Customer experience",
+      "Rapid response",
+    ],
+    valueDelivered:
+      "Consistent store operations, well-maintained facilities and responsive support that help create a comfortable and reliable shopping environment.",
   },
 ];
 

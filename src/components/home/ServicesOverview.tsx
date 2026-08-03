@@ -1,45 +1,48 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import { services } from "@/lib/content";
 
 export default function ServicesOverview() {
   return (
-    <section className="bg-cream py-24 sm:py-28">
+    <section className="bg-white py-24 sm:py-32">
       <Container>
-        <div className="max-w-2xl">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gold">
-            What we do
-          </p>
-          <h2 className="mt-4 font-serif text-3xl leading-tight text-charcoal sm:text-4xl">
-            Six disciplines. One accountable partner.
-          </h2>
-        </div>
+        <Reveal>
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              What we do
+            </p>
+            <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl">
+              Six disciplines. One accountable partner.
+            </h2>
+          </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm bg-charcoal/10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 border-t border-black/10">
           {services.map((s, i) => (
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              className="group flex flex-col justify-between bg-cream p-8 transition-colors hover:bg-charcoal sm:min-h-[15rem]"
-            >
-              <div>
-                <span className="text-xs font-medium text-gold">
+            <Reveal key={s.slug} delay={i * 60}>
+              <Link
+                href={`/services/${s.slug}`}
+                className="group flex flex-col gap-4 border-b border-black/10 py-8 transition-colors sm:flex-row sm:items-center sm:gap-10 sm:py-10"
+              >
+                <span className="text-sm font-bold text-grey/50 sm:w-12">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 font-serif text-xl text-charcoal group-hover:text-cream">
-                  {s.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink/60 group-hover:text-cream/60">
-                  {s.summary}
-                </p>
-              </div>
-              <span className="mt-6 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-charcoal group-hover:text-gold">
-                Learn more
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
-                  <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </Link>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-black transition-colors group-hover:text-green sm:text-2xl">
+                    {s.name}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-grey">
+                    {s.summary}
+                  </p>
+                </div>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-black/15 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
+                  <svg width="16" height="12" viewBox="0 0 14 10" fill="none">
+                    <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </Container>

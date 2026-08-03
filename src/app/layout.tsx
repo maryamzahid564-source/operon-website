@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
-import { Lora, Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { gotham } from "@/lib/fonts";
 import "./globals.css";
 
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
 export const metadata: Metadata = {
-  title: "Operon Middle East | Facilities Management, Dubai",
+  title: "Operon Middle East | Facilities Management, UAE",
   description:
-    "Operon Middle East delivers integrated facilities management across the UAE — Hard FM, Soft FM, Energy Management, Technology Solutions, Golf Course Management and Consultancy.",
+    "Operon Middle East delivers integrated facilities management across the UAE. Part of the UEM Edgenta Group, established in the UAE since 2008.",
 };
 
 export default function RootLayout({
@@ -28,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.variable} ${poppins.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-cream text-ink antialiased">
+    <html lang="en" className={`${gotham.variable} h-full`}>
+      <body className="flex min-h-full flex-col bg-white text-ink antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
