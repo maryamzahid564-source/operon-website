@@ -120,6 +120,76 @@ export default async function ServicePage({
         </Container>
       </section>
 
+      {service.framework && (
+        <section className="bg-white pb-24 sm:pb-32">
+          <Container>
+            <Reveal>
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                  How it works
+                </p>
+                <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+                  {service.framework.heading}
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-grey">
+                  {service.framework.intro}
+                </p>
+              </div>
+            </Reveal>
+            <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-5">
+              {service.framework.steps.map((step, i) => (
+                <Reveal key={step.title} delay={i * 70} className="h-full">
+                  <div className="flex h-full flex-col bg-mist p-6">
+                    <span className="text-sm font-bold text-green">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-3 text-base font-bold leading-snug text-black">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-grey">
+                      {step.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {service.groupImpact && (
+        <section className="bg-black py-24 text-white sm:py-32">
+          <Container>
+            <Reveal>
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                  Group impact
+                </p>
+                <h2 className="mt-4 text-2xl font-black sm:text-3xl">
+                  {service.groupImpact.heading}
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-white/60">
+                  {service.groupImpact.intro}
+                </p>
+              </div>
+            </Reveal>
+            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/10 pt-10 sm:grid-cols-3">
+              {service.groupImpact.stats.map((s, i) => (
+                <Reveal key={s.label} delay={i * 60}>
+                  <p className="text-2xl font-black text-green sm:text-3xl">{s.value}</p>
+                  <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">
+                    {s.label}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+            <p className="mt-10 text-xs leading-relaxed text-white/55">
+              {service.groupImpact.note}
+            </p>
+          </Container>
+        </section>
+      )}
+
       <section className="bg-mist py-20 sm:py-24">
         <Container>
           <Reveal>

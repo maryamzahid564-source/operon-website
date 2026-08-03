@@ -5,6 +5,17 @@ export type Service = {
   summary: string;
   description: string;
   capabilities: string[];
+  framework?: {
+    heading: string;
+    intro: string;
+    steps: { title: string; body: string }[];
+  };
+  groupImpact?: {
+    heading: string;
+    intro: string;
+    note: string;
+    stats: { value: string; label: string }[];
+  };
 };
 
 export const services: Service[] = [
@@ -64,6 +75,20 @@ export const services: Service[] = [
       "Green building certification support (LEED, SPIRE, WELL)",
       "Sustainability projects",
     ],
+    groupImpact: {
+      heading: "Backed by proven group results",
+      intro:
+        "Operon embeds sustainability into everyday facilities management — helping clients improve energy and water efficiency, reduce waste, optimise asset performance and create healthier built environments, backed by UEM Edgenta's sustainability and engineering expertise.",
+      note: "UEM Edgenta Group sustainability achievements. USD value converted from MYR as at July 2026.",
+      stats: [
+        { value: "USD 13.5M", label: "Energy bill savings" },
+        { value: "203M+ kWh", label: "Total electrical savings" },
+        { value: "29%+", label: "Reduction in water consumption" },
+        { value: "20+", label: "GBI & LEED-certified buildings" },
+        { value: "37,200+ tCO₂", label: "Carbon emissions reduced" },
+        { value: "Up to 48%", label: "Reduction in electricity consumption" },
+      ],
+    },
   },
   {
     slug: "technology-solutions",
@@ -81,6 +106,33 @@ export const services: Service[] = [
       "Predictive maintenance insights",
       "Audit-ready reporting",
     ],
+    framework: {
+      heading: "Tech-enabled FM, step by step",
+      intro:
+        "Operon combines hands-on facilities management expertise with smart building technology to improve how assets are monitored, operated and maintained. Through real-time data, connected systems and AI-driven insights, we support a more proactive approach to FM — helping clients improve reliability, reduce inefficiencies and make better operational decisions.",
+      steps: [
+        {
+          title: "Real-time monitoring",
+          body: "Centralised visibility across building operations and asset conditions.",
+        },
+        {
+          title: "Energy optimisation",
+          body: "Intelligent control of consumption to support efficiency, cost and sustainability goals.",
+        },
+        {
+          title: "Predictive insights",
+          body: "Forward-looking intelligence that helps prevent disruption before it happens.",
+        },
+        {
+          title: "Smarter asset performance",
+          body: "Reliable, data-supported asset management for stronger lifecycle performance.",
+        },
+        {
+          title: "Improved comfort and reliability",
+          body: "Stable, well-managed environments for tenants, visitors and communities.",
+        },
+      ],
+    },
   },
   {
     slug: "golf-course-management",
@@ -137,6 +189,23 @@ export const values = [
   { letter: "R", title: "Respect for All" },
   { letter: "S", title: "Solutioning Mindset" },
   { letter: "T", title: "True to Our Word" },
+];
+
+export const portfolio = [
+  "Jumeirah Golf Estate",
+  "Topgolf Dubai",
+  "Emirates Golf Club Villas",
+  "Expo City",
+  "Buildings 25 & 49, Dubai Healthcare City",
+  "Cubix Residences",
+  "Maya 5 Residences",
+  "Foxhills",
+  "wasl District",
+  "Bahia Residence, Liwan 2",
+  "wasl Trio",
+  "wasl Business Central",
+  "wasl Oasis 3",
+  "North Heights Apartment, Al Nahda 1",
 ];
 
 export const clients = [

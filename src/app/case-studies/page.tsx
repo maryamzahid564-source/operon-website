@@ -3,7 +3,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/home/CtaBanner";
 import CaseStudiesGrid from "@/components/case-studies/CaseStudiesGrid";
-import { caseStudies, clients } from "@/lib/content";
+import { caseStudies, clients, portfolio } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -54,6 +54,31 @@ export default function CaseStudiesPage() {
       <section className="py-20 sm:py-24">
         <Container>
           <CaseStudiesGrid caseStudies={caseStudiesWithImages} />
+        </Container>
+      </section>
+
+      <section className="border-t border-black/10 bg-mist py-20 sm:py-24">
+        <Container>
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              Across our portfolio
+            </p>
+            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl">
+              The places behind our work.
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+              {portfolio.map((p) => (
+                <li
+                  key={p}
+                  className="border-b border-black/10 pb-4 text-sm text-black/80"
+                >
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Container>
       </section>
 
