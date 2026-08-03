@@ -27,7 +27,7 @@ export default function NotFound() {
           href="/case-studies"
           className="mt-2 text-sm font-medium text-grey transition-colors hover:text-green"
         >
-          Or browse our case studies &rarr;
+          Or browse our projects &rarr;
         </Link>
       </Container>
     </section>

@@ -39,34 +39,34 @@ export default async function ServicePage({
 
   return (
     <>
-      <section className="bg-white pb-16 pt-16 sm:pt-20 lg:pt-28">
-        <Container>
+      <section className="bg-white pt-16 sm:pt-20 lg:pt-24">
+        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Services
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
               {service.name}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">
               {service.tagline}
             </p>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-grey">
+              {service.summary}
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <Photo
+              src={photoFor(`services/${service.slug}`)}
+              alt={service.name}
+              aspect="aspect-[4/5] max-h-[640px]"
+              className="rounded-3xl"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              priority
+            />
           </Reveal>
         </Container>
       </section>
-
-      <Reveal delay={100}>
-        <Container>
-          <Photo
-            src={photoFor(`services/${service.slug}`)}
-            alt={service.name}
-            aspect="aspect-[21/9]"
-            className="rounded-3xl"
-            sizes="(min-width: 1280px) 1152px, 100vw"
-            priority
-          />
-        </Container>
-      </Reveal>
 
       <section className="py-24 sm:py-32">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">

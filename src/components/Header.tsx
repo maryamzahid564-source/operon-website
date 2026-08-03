@@ -58,7 +58,10 @@ export default function Header() {
             )}
           </div>
           <Link href="/case-studies" className={navLink}>
-            Case Studies
+            Projects
+          </Link>
+          <Link href="/about" className={navLink}>
+            About
           </Link>
           <Link href="/contact" className={navLink}>
             Contact
@@ -104,7 +107,10 @@ export default function Header() {
             ))}
             <div className="my-3 h-px bg-black/10" />
             <Link href="/case-studies" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
-              Case Studies
+              Projects
+            </Link>
+            <Link href="/about" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
+              About
             </Link>
             <Link href="/contact" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
               Contact

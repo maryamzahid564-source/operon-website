@@ -23,7 +23,7 @@ export default function CaseStudyTeaser() {
               </h2>
             </div>
             <Button href="/case-studies" variant="outline" className="hidden sm:inline-flex">
-              View all case studies
+              View all projects
             </Button>
           </div>
         </Reveal>
@@ -55,7 +55,7 @@ export default function CaseStudyTeaser() {
 
         <div className="mt-10 sm:hidden">
           <Button href="/case-studies" variant="outline">
-            View all case studies
+            View all projects
           </Button>
         </div>
       </Container>

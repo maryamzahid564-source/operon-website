@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
+import Photo from "@/components/ui/Photo";
 import CtaBanner from "@/components/home/CtaBanner";
 import CaseStudiesGrid from "@/components/case-studies/CaseStudiesGrid";
 import { caseStudies, clients, portfolio } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Operon Middle East",
+  title: "Projects | Operon Middle East",
   description:
     "Selected facilities management work across residential, commercial, hospitality and specialised assets in the UAE.",
 };
@@ -24,7 +25,7 @@ export default function CaseStudiesPage() {
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              Case Studies
+              Projects
             </p>
             <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
               Selected work across the UAE.
@@ -67,6 +68,19 @@ export default function CaseStudiesPage() {
               The places behind our work.
             </h2>
           </Reveal>
+          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n, i) => (
+              <Reveal key={n} delay={(i % 4) * 60}>
+                <Photo
+                  src={photoFor(`portfolio/p${n}`)}
+                  alt=""
+                  aspect="aspect-[4/3]"
+                  className="rounded-xl"
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                />
+              </Reveal>
+            ))}
+          </div>
           <Reveal delay={80}>
             <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
               {portfolio.map((p) => (

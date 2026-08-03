@@ -45,7 +45,12 @@ export default function Footer() {
           <ul className="mt-5 space-y-3">
             <li>
               <Link href="/case-studies" className="text-sm text-white/70 transition-colors hover:text-green">
-                Case Studies
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="text-sm text-white/70 transition-colors hover:text-green">
+                Who We Are
               </Link>
             </li>
             <li>

@@ -49,7 +49,7 @@ export default async function CaseStudyPage({
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="rotate-180">
                 <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Case Studies
+              Projects
             </Link>
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.3em] text-green">
               {study.sector} &middot; {study.location}

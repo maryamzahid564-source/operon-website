@@ -31,16 +31,15 @@ export default function Hero() {
       </Container>
 
       <Reveal delay={100}>
-        <Container className="mt-16 sm:mt-20">
+        <div className="mt-16 sm:mt-20">
           <Photo
             src={photoFor("home-hero")}
-            alt="Operon Middle East facilities management teams at work"
-            aspect="aspect-[21/9]"
-            className="rounded-3xl"
-            sizes="(min-width: 1280px) 1152px, 100vw"
+            alt="Aerial view of a managed community in the Operon portfolio"
+            aspect="aspect-[16/10] sm:aspect-[21/9] max-h-[680px]"
+            sizes="100vw"
             priority
           />
-        </Container>
+        </div>
       </Reveal>
 
       <Container className="mt-16 sm:mt-20">
