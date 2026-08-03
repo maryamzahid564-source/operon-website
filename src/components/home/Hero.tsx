@@ -60,7 +60,7 @@ export default function Hero() {
 
       <div className="mt-16 border-t border-black/10 bg-mist sm:mt-20">
         <Container className="flex flex-wrap items-center gap-x-10 gap-y-3 py-6">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-grey/70">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-grey">
             Certifications &amp; memberships
           </span>
           {credentials.map((c) => (

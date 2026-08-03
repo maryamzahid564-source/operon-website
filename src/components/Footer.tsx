@@ -21,9 +21,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-white/40">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-white/60">
             Services
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-3">
             {services.map((s) => (
               <li key={s.slug}>
@@ -39,9 +39,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-white/40">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-white/60">
             Company
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-3">
             <li>
               <Link href="/case-studies" className="text-sm text-white/70 transition-colors hover:text-green">
@@ -62,9 +62,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-white/40">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-white/60">
             Contact
-          </h3>
+          </h2>
           <ul className="mt-5 space-y-3 text-sm text-white/70">
             <li>United Arab Emirates</li>
             <li>
@@ -82,7 +82,7 @@ export default function Footer() {
       </Container>
 
       <div className="border-t border-white/10 py-6">
-        <Container className="flex flex-col items-center justify-between gap-3 text-xs text-white/35 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-3 text-xs text-white/55 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Operon Middle East. All rights reserved.</p>
           <p>An Edgenta Company</p>
         </Container>

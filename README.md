@@ -71,6 +71,18 @@ emails, and silently drops bot submissions via a honeypot field. The
 submitter's address is set as `Reply-To`, so the ops team can reply
 directly from the inbox.
 
+## Accessibility note
+
+Lighthouse scores ~99 performance / 100 best-practices, and the site passes
+WCAG checks except one deliberate case: **Operon Green `#55A755` measures
+~3.0:1 contrast against white** — fine for large text (WCAG AA large-text
+threshold is 3:1) but below the 4.5:1 required for small text. It is used
+for small accent labels and white-on-green buttons because the brand
+guidelines mandate it as the dominant accent colour. If full WCAG AA
+compliance becomes a requirement, ask Corporate Communications to approve a
+darker web-accent variant of the green for small text; do not change the
+colour without brand approval.
+
 ## Before launch
 
 - **Set the SMTP environment variables** (table above) so RFQ submissions

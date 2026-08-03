@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
 
       <div className="border-y border-black/10 bg-mist py-6">
         <Container className="flex flex-wrap items-center gap-x-8 gap-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-grey/70">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-grey">
             Selected clients
           </span>
           {clients.map((c) => (

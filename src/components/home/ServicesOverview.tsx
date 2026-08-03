@@ -25,7 +25,7 @@ export default function ServicesOverview() {
                 href={`/services/${s.slug}`}
                 className="group flex flex-col gap-4 border-b border-black/10 py-8 transition-colors sm:flex-row sm:items-center sm:gap-10 sm:py-10"
               >
-                <span className="text-sm font-bold text-grey/50 sm:w-12">
+                <span className="text-sm font-bold text-grey sm:w-12">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="flex-1">
