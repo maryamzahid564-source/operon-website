@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import Reveal from "@/components/ui/Reveal";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import Photo from "@/components/ui/Photo";
 import type { CaseStudy } from "@/lib/content";
 
-export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStudy[] }) {
+type CaseStudyWithImage = CaseStudy & { imageSrc: string | null };
+
+export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStudyWithImage[] }) {
   const sectors = useMemo(
     () => ["All", ...Array.from(new Set(caseStudies.map((c) => c.sector)))],
     [caseStudies]
@@ -39,7 +41,13 @@ export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStud
         {filtered.map((c, i) => (
           <Reveal key={c.slug} delay={(i % 6) * 60}>
             <Link href={`/case-studies/${c.slug}`} className="group block">
-              <ImagePlaceholder aspect="aspect-[4/3]" className="rounded-2xl" />
+              <Photo
+                src={c.imageSrc}
+                alt={c.title}
+                aspect="aspect-[4/3]"
+                className="rounded-2xl"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              />
               <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">
                 {c.sector} &middot; {c.location}
               </p>

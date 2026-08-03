@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import Photo from "@/components/ui/Photo";
 import CtaBanner from "@/components/home/CtaBanner";
 import { caseStudies } from "@/lib/content";
+import { photoFor } from "@/lib/images";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -62,7 +63,14 @@ export default async function CaseStudyPage({
 
       <Reveal delay={100}>
         <Container>
-          <ImagePlaceholder aspect="aspect-[21/9]" className="rounded-3xl" />
+          <Photo
+            src={photoFor(`case-studies/${study.slug}`)}
+            alt={study.title}
+            aspect="aspect-[21/9]"
+            className="rounded-3xl"
+            sizes="(min-width: 1280px) 1152px, 100vw"
+            priority
+          />
         </Container>
       </Reveal>
 
@@ -119,7 +127,13 @@ export default async function CaseStudyPage({
             {others.map((c, i) => (
               <Reveal key={c.slug} delay={i * 80}>
                 <Link href={`/case-studies/${c.slug}`} className="group block">
-                  <ImagePlaceholder aspect="aspect-[4/3]" className="rounded-2xl" />
+                  <Photo
+                    src={photoFor(`case-studies/${c.slug}`)}
+                    alt={c.title}
+                    aspect="aspect-[4/3]"
+                    className="rounded-2xl"
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                  />
                   <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">
                     {c.sector} &middot; {c.location}
                   </p>

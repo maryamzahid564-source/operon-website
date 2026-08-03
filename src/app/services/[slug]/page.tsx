@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import Photo from "@/components/ui/Photo";
 import CtaBanner from "@/components/home/CtaBanner";
 import { services } from "@/lib/content";
+import { photoFor } from "@/lib/images";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -56,7 +57,14 @@ export default async function ServicePage({
 
       <Reveal delay={100}>
         <Container>
-          <ImagePlaceholder aspect="aspect-[21/9]" className="rounded-3xl" />
+          <Photo
+            src={photoFor(`services/${service.slug}`)}
+            alt={service.name}
+            aspect="aspect-[21/9]"
+            className="rounded-3xl"
+            sizes="(min-width: 1280px) 1152px, 100vw"
+            priority
+          />
         </Container>
       </Reveal>
 

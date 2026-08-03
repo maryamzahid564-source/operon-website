@@ -37,11 +37,20 @@ needed.
 
 ## Swapping in real photography
 
-All imagery currently renders as grey placeholder blocks via
-`src/components/ui/ImagePlaceholder.tsx` (a photoshoot is planned). To swap
-in real images, replace `<ImagePlaceholder />` usages with `next/image` —
-the placeholders already occupy the exact aspect ratios the layouts expect
-(mostly `21:9` heroes and `4:3` cards).
+No code changes needed — drop image files into `public/images/photos/`
+using these names and the site picks them up automatically (grey
+placeholder blocks render wherever a file is missing):
+
+| Slot | File |
+| --- | --- |
+| Homepage hero (21:9) | `public/images/photos/home-hero.jpg` |
+| Service page hero (21:9) | `public/images/photos/services/<slug>.jpg` (e.g. `hard-fm.jpg`, `soft-fm.jpg`, `energy-management.jpg`, `technology-solutions.jpg`, `golf-course-management.jpg`, `consultancy.jpg`) |
+| Case study hero + cards (21:9 / 4:3 crops) | `public/images/photos/case-studies/<slug>.jpg` (e.g. `wasl-village.jpg`, `al-thuraya-tower.jpg`) |
+
+`.jpeg`, `.png` and `.webp` also work. Images are served through
+`next/image`, so they're resized and optimised automatically. After adding
+files, rebuild/redeploy (statically generated pages resolve photos at build
+time).
 
 ## RFQ form email delivery
 

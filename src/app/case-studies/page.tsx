@@ -4,6 +4,7 @@ import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/home/CtaBanner";
 import CaseStudiesGrid from "@/components/case-studies/CaseStudiesGrid";
 import { caseStudies, clients } from "@/lib/content";
+import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Case Studies | Operon Middle East",
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudiesPage() {
+  const caseStudiesWithImages = caseStudies.map((c) => ({
+    ...c,
+    imageSrc: photoFor(`case-studies/${c.slug}`),
+  }));
+
   return (
     <>
       <section className="bg-white pb-16 pt-16 sm:pt-20 lg:pt-28">
@@ -47,7 +53,7 @@ export default function CaseStudiesPage() {
 
       <section className="py-20 sm:py-24">
         <Container>
-          <CaseStudiesGrid caseStudies={caseStudies} />
+          <CaseStudiesGrid caseStudies={caseStudiesWithImages} />
         </Container>
       </section>
 

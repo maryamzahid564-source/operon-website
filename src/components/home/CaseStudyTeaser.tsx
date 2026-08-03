@@ -2,8 +2,9 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import Photo from "@/components/ui/Photo";
 import { caseStudies } from "@/lib/content";
+import { photoFor } from "@/lib/images";
 
 export default function CaseStudyTeaser() {
   const featured = caseStudies.slice(0, 3);
@@ -31,7 +32,13 @@ export default function CaseStudyTeaser() {
           {featured.map((c, i) => (
             <Reveal key={c.slug} delay={i * 80}>
               <Link href="/case-studies" className="group block">
-                <ImagePlaceholder aspect="aspect-[4/3]" className="rounded-2xl" />
+                <Photo
+                  src={photoFor(`case-studies/${c.slug}`)}
+                  alt={c.title}
+                  aspect="aspect-[4/3]"
+                  className="rounded-2xl"
+                  sizes="(min-width: 640px) 33vw, 100vw"
+                />
                 <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">
                   {c.sector} &middot; {c.location}
                 </p>

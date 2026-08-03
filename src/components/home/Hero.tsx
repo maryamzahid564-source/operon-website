@@ -1,8 +1,9 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import Photo from "@/components/ui/Photo";
 import { stats, credentials } from "@/lib/content";
+import { photoFor } from "@/lib/images";
 
 export default function Hero() {
   return (
@@ -31,7 +32,14 @@ export default function Hero() {
 
       <Reveal delay={100}>
         <Container className="mt-16 sm:mt-20">
-          <ImagePlaceholder aspect="aspect-[21/9]" className="rounded-3xl" />
+          <Photo
+            src={photoFor("home-hero")}
+            alt="Operon Middle East facilities management teams at work"
+            aspect="aspect-[21/9]"
+            className="rounded-3xl"
+            sizes="(min-width: 1280px) 1152px, 100vw"
+            priority
+          />
         </Container>
       </Reveal>
 

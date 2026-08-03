@@ -15,6 +15,29 @@ const LIMITS = {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const KNOWN_SERVICES = new Set(services.map((s) => s.name));
 
+// Per-instance rate limit — enough to stop naive floods; a serverless
+// deployment with many instances should add an edge/WAF rule as well.
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 5;
+const rateHits = new Map<string, number[]>();
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  if (rateHits.size > 1000) {
+    for (const [key, times] of rateHits) {
+      if (times.every((t) => now - t >= RATE_WINDOW_MS)) rateHits.delete(key);
+    }
+  }
+  const recent = (rateHits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= RATE_MAX) {
+    rateHits.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  rateHits.set(ip, recent);
+  return false;
+}
+
 function cleanString(value: unknown, max: number): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();
@@ -22,6 +45,15 @@ function cleanString(value: unknown, max: number): string | null {
 }
 
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (rateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again shortly." },
+      { status: 429 }
+    );
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
