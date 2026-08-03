@@ -22,6 +22,7 @@ export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStud
         {sectors.map((sector) => (
           <button
             key={sector}
+            aria-pressed={active === sector}
             onClick={() => setActive(sector)}
             className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-colors ${
               active === sector

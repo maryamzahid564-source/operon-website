@@ -41,6 +41,7 @@ export default function RfqForm() {
       assets: formData.get("assets"),
       message: formData.get("message"),
       services: selectedServices,
+      website: formData.get("website"),
     };
 
     try {
@@ -60,7 +61,7 @@ export default function RfqForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-green/30 bg-tint p-10 text-center">
+      <div role="status" className="rounded-2xl border border-green/30 bg-tint p-10 text-center">
         <p className="text-lg font-bold text-black">Thank you.</p>
         <p className="mt-2 text-sm leading-relaxed text-grey">
           We&rsquo;ve received your request and will be in touch shortly.
@@ -71,6 +72,12 @@ export default function RfqForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot — hidden from real users and assistive tech; bots that fill it are dropped server-side. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
@@ -109,6 +116,7 @@ export default function RfqForm() {
               <button
                 key={s.slug}
                 type="button"
+                aria-pressed={active}
                 onClick={() => toggleService(s.name)}
                 className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                   active
@@ -155,7 +163,7 @@ export default function RfqForm() {
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-600">
+        <p role="alert" className="text-sm text-red-600">
           Something went wrong. Please try again or email us directly at{" "}
           <a href="mailto:info@operon.co" className="underline">
             info@operon.co

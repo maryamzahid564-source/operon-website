@@ -43,11 +43,29 @@ in real images, replace `<ImagePlaceholder />` usages with `next/image` —
 the placeholders already occupy the exact aspect ratios the layouts expect
 (mostly `21:9` heroes and `4:3` cards).
 
+## RFQ form email delivery
+
+`src/app/api/rfq/route.ts` sends submissions by email over SMTP, configured
+entirely through environment variables — it works with any provider
+(corporate mail server, SendGrid, Mailgun, Amazon SES, etc.):
+
+| Variable | Required | Notes |
+| --- | --- | --- |
+| `SMTP_HOST` | yes | Without it, submissions are only logged server-side (dev fallback) |
+| `SMTP_PORT` | no | Defaults to `587`; `465` switches to implicit TLS |
+| `SMTP_USER` / `SMTP_PASS` | no | Omit for unauthenticated relays |
+| `RFQ_TO_EMAIL` | no | Destination inbox, defaults to `info@operon.co` |
+| `RFQ_FROM_EMAIL` | no | Sender address, defaults to `SMTP_USER` |
+
+The endpoint validates and length-caps every field, rejects malformed
+emails, and silently drops bot submissions via a honeypot field. The
+submitter's address is set as `Reply-To`, so the ops team can reply
+directly from the inbox.
+
 ## Before launch
 
-- **Wire up the RFQ form.** `src/app/api/rfq/route.ts` is a stub: it
-  validates and logs submissions server-side but does not send them
-  anywhere. Connect it to an email provider (e.g. Resend, SendGrid) or CRM.
+- **Set the SMTP environment variables** (table above) so RFQ submissions
+  reach a real inbox.
 - **Confirm public building names** for the wasl case-study properties —
   some source materials use internal contract codes (e.g. "R1083").
 - **Replace placeholder blocks** with photography once the shoot is done.
