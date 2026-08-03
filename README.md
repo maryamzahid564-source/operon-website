@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Operon Middle East — Website
 
-## Getting Started
+Redesigned corporate website for Operon Middle East, an integrated facilities
+management company in the UAE (part of the UEM Edgenta Group). Built with
+Next.js (App Router) and Tailwind CSS, following the OME Brand Guidelines
+(Operon Green `#55A755`, Gotham typeface, white-dominant layouts).
 
-First, run the development server:
+## Running locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # dev server on http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | Where |
+| --- | --- |
+| Page content (services, stats, case studies, clients, values) | `src/lib/content.ts` |
+| Homepage sections | `src/components/home/` |
+| Service pages (one dynamic route for all six) | `src/app/services/[slug]/page.tsx` |
+| Case studies listing + detail | `src/app/case-studies/` |
+| Contact page + RFQ form | `src/app/contact/`, `src/components/contact/RfqForm.tsx` |
+| RFQ submission endpoint | `src/app/api/rfq/route.ts` |
+| Brand colours (Tailwind tokens) | `src/app/globals.css` |
+| Gotham webfonts (self-hosted woff2) | `src/fonts/`, wired in `src/lib/fonts.ts` |
+| Logo artwork (icon, wordmark, full lockup — colour + white) | `public/images/` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+Almost all copy lives in `src/lib/content.ts` as plain data. To add a new
+service or case study, add an entry to the relevant array — the pages,
+navigation, footer and filters pick it up automatically. No layout changes
+needed.
 
-To learn more about Next.js, take a look at the following resources:
+## Swapping in real photography
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All imagery currently renders as grey placeholder blocks via
+`src/components/ui/ImagePlaceholder.tsx` (a photoshoot is planned). To swap
+in real images, replace `<ImagePlaceholder />` usages with `next/image` —
+the placeholders already occupy the exact aspect ratios the layouts expect
+(mostly `21:9` heroes and `4:3` cards).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Before launch
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Wire up the RFQ form.** `src/app/api/rfq/route.ts` is a stub: it
+  validates and logs submissions server-side but does not send them
+  anywhere. Connect it to an email provider (e.g. Resend, SendGrid) or CRM.
+- **Confirm public building names** for the wasl case-study properties —
+  some source materials use internal contract codes (e.g. "R1083").
+- **Replace placeholder blocks** with photography once the shoot is done.

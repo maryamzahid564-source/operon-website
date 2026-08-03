@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "./ui/Container";
-import Logo from "./ui/Logo";
 import { services } from "@/lib/content";
 
 export default function Footer() {
@@ -8,7 +8,12 @@ export default function Footer() {
     <footer className="bg-black text-white/70">
       <Container className="grid grid-cols-1 gap-12 py-20 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo variant="white" />
+          <Image
+            src="/images/logo-full-white.png"
+            alt="Operon — An Edgenta Company"
+            width={111}
+            height={120}
+          />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/50">
             Integrated facilities management for the UAE&rsquo;s built
             environment &mdash; part of the UEM Edgenta Group.

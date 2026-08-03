@@ -279,9 +279,3 @@ export const caseStudies: CaseStudy[] = [
       "Consistent store operations, well-maintained facilities and responsive support that help create a comfortable and reliable shopping environment.",
   },
 ];
-
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/contact", label: "Contact" },
-];
