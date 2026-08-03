@@ -1,0 +1,156 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
+import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import CtaBanner from "@/components/home/CtaBanner";
+import { services } from "@/lib/content";
+
+export function generateStaticParams() {
+  return services.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  if (!service) return {};
+  return {
+    title: `${service.name} | Operon Middle East`,
+    description: service.summary,
+  };
+}
+
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = services.find((s) => s.slug === slug);
+  if (!service) notFound();
+
+  const otherServices = services.filter((s) => s.slug !== service.slug);
+
+  return (
+    <>
+      <section className="bg-white pb-16 pt-16 sm:pt-20 lg:pt-28">
+        <Container>
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              Services
+            </p>
+            <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+              {service.name}
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">
+              {service.tagline}
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      <Reveal delay={100}>
+        <Container>
+          <ImagePlaceholder aspect="aspect-[21/9]" className="rounded-3xl" />
+        </Container>
+      </Reveal>
+
+      <section className="py-24 sm:py-32">
+        <Container className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">
+          <Reveal>
+            <div className="lg:sticky lg:top-28">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                Overview
+              </p>
+              <p className="mt-5 text-base leading-relaxed text-grey">
+                {service.description}
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-green px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#488f48]"
+                >
+                  Request a Proposal
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              What&rsquo;s included
+            </p>
+            <ul className="mt-6 divide-y divide-black/10 border-t border-black/10">
+              {service.capabilities.map((c) => (
+                <li key={c} className="flex items-center gap-4 py-4">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    className="shrink-0"
+                  >
+                    <circle cx="10" cy="10" r="9.25" stroke="#55A755" strokeWidth="1.5" />
+                    <path
+                      d="M6 10.2L8.5 12.7L14 7"
+                      stroke="#55A755"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="text-sm leading-snug text-black/80">{c}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="bg-mist py-20 sm:py-24">
+        <Container>
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              Explore more
+            </p>
+            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+              Other services
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-5">
+            {otherServices.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 60}>
+                <Link
+                  href={`/services/${s.slug}`}
+                  className="group flex h-full flex-col justify-between bg-white p-6 transition-colors hover:bg-black"
+                >
+                  <span className="text-sm font-bold text-black transition-colors group-hover:text-white">
+                    {s.name}
+                  </span>
+                  <span className="mt-6 flex h-9 w-9 items-center justify-center rounded-full border border-black/15 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                      <path
+                        d="M1 5H13M13 5L9 1M13 5L9 9"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <CtaBanner />
+    </>
+  );
+}
