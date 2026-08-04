@@ -136,10 +136,10 @@ export default async function ServicePage({
                 </p>
               </div>
             </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {service.framework.steps.map((step, i) => (
                 <Reveal key={step.title} delay={i * 70} className="h-full">
-                  <div className="flex h-full flex-col bg-mist p-6">
+                  <div className="flex h-full flex-col rounded-2xl bg-mist p-6">
                     <span className="text-sm font-bold text-green">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -200,12 +200,12 @@ export default async function ServicePage({
               Other services
             </h2>
           </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-2xl bg-black/10 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {otherServices.map((s, i) => (
-              <Reveal key={s.slug} delay={i * 60}>
+              <Reveal key={s.slug} delay={i * 60} className="h-full">
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full flex-col justify-between bg-white p-6 transition-colors hover:bg-black"
+                  className="group flex h-full flex-col justify-between rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-black hover:bg-black"
                 >
                   <span className="text-sm font-bold text-black transition-colors group-hover:text-white">
                     {s.name}
