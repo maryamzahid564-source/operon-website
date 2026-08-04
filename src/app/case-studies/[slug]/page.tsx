@@ -119,7 +119,7 @@ export default async function CaseStudyPage({
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               More work
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
               Other case studies
             </h2>
           </Reveal>
@@ -132,6 +132,7 @@ export default async function CaseStudyPage({
                     alt={c.title}
                     aspect="aspect-[4/3]"
                     className="rounded-2xl"
+                  imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(min-width: 640px) 33vw, 100vw"
                   />
                   <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">

@@ -123,7 +123,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               What guides us
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
               Five values we hold ourselves to.
             </h2>
           </Reveal>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Powered by UEM Edgenta
             </p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl">
+            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl tracking-tight">
               Global expertise behind our local delivery.
             </h2>
           </Reveal>

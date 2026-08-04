@@ -18,7 +18,7 @@ export default function CaseStudyTeaser() {
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Our work
               </p>
-              <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl">
+              <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl tracking-tight">
                 Assets our clients trust us with.
               </h2>
             </div>
@@ -37,6 +37,7 @@ export default function CaseStudyTeaser() {
                   alt={c.title}
                   aspect="aspect-[4/3]"
                   className="rounded-2xl"
+                  imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   sizes="(min-width: 640px) 33vw, 100vw"
                 />
                 <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">

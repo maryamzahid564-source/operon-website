@@ -12,7 +12,7 @@ export default function ServicesOverview() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               What we do
             </p>
-            <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl">
+            <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl tracking-tight">
               Six disciplines. One accountable partner.
             </h2>
           </div>

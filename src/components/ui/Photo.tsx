@@ -8,6 +8,7 @@ export default function Photo({
   alt,
   aspect = "aspect-[4/3]",
   className = "",
+  imgClassName = "",
   sizes,
   priority = false,
 }: {
@@ -15,6 +16,7 @@ export default function Photo({
   alt: string;
   aspect?: string;
   className?: string;
+  imgClassName?: string;
   sizes?: string;
   priority?: boolean;
 }) {
@@ -23,7 +25,14 @@ export default function Photo({
   }
   return (
     <div className={`relative w-full overflow-hidden ${aspect} ${className}`}>
-      <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        priority={priority}
+        className={`object-cover ${imgClassName}`}
+      />
     </div>
   );
 }

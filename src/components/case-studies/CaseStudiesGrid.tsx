@@ -46,6 +46,7 @@ export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStud
                 alt={c.title}
                 aspect="aspect-[4/3]"
                 className="rounded-2xl"
+                  imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               />
               <p className="mt-5 text-xs font-bold uppercase tracking-wide text-green">

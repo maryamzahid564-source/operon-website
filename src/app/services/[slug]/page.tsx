@@ -128,7 +128,7 @@ export default async function ServicePage({
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                   How it works
                 </p>
-                <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+                <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
                   {service.framework.heading}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-grey">
@@ -165,7 +165,7 @@ export default async function ServicePage({
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                   Group impact
                 </p>
-                <h2 className="mt-4 text-2xl font-black sm:text-3xl">
+                <h2 className="mt-4 text-2xl font-black sm:text-3xl tracking-tight">
                   {service.groupImpact.heading}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-white/60">
@@ -176,7 +176,7 @@ export default async function ServicePage({
             <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/10 pt-10 sm:grid-cols-3">
               {service.groupImpact.stats.map((s, i) => (
                 <Reveal key={s.label} delay={i * 60}>
-                  <p className="text-2xl font-black text-green sm:text-3xl">{s.value}</p>
+                  <p className="text-2xl font-black text-green sm:text-3xl tracking-tight">{s.value}</p>
                   <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">
                     {s.label}
                   </p>
@@ -196,7 +196,7 @@ export default async function ServicePage({
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Explore more
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl">
+            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
               Other services
             </h2>
           </Reveal>

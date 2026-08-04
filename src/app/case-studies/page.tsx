@@ -64,7 +64,7 @@ export default function CaseStudiesPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Across our portfolio
             </p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl">
+            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl tracking-tight">
               The places behind our work.
             </h2>
           </Reveal>

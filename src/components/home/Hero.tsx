@@ -13,14 +13,13 @@ export default function Hero() {
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
             Operon Middle East &middot; UAE
           </p>
-          <h1 className="mt-6 max-w-4xl text-[2.5rem] font-black leading-[1.08] tracking-tight text-black sm:text-6xl lg:text-[4.25rem]">
+          <h1 className="mt-6 max-w-4xl text-[2.75rem] font-black leading-[1.04] tracking-[-0.02em] text-black sm:text-6xl lg:text-[4.75rem]">
             Measured by what we deliver.
           </h1>
           <p className="mt-7 max-w-xl text-base leading-relaxed text-grey sm:text-lg">
-            Integrated facilities management across the UAE since 2008 &mdash;
-            engineering, cleaning, security and energy programmes for 300+
-            buildings, backed by the institutional strength of the UEM
-            Edgenta Group.
+            Integrated facilities management for 300+ buildings across the
+            UAE &mdash; engineering, cleaning, security and energy,
+            delivered to one standard since 2008.
           </p>
           <div className="mt-10">
             <Button href="/contact" variant="primary">
@@ -47,7 +46,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-black/10 pt-10 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
-                <p className="font-black text-3xl text-black sm:text-4xl">{s.value}</p>
+                <p className="font-black text-4xl text-black sm:text-5xl tracking-tight">{s.value}</p>
                 <p className="mt-2 text-xs leading-snug text-grey sm:text-sm">
                   {s.label}
                 </p>
