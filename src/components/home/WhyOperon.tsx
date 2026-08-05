@@ -17,7 +17,7 @@ export default function WhyOperon() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Our foundation
             </p>
-            <h2 className="mt-5 text-3xl font-black leading-tight sm:text-4xl tracking-tight">
+            <h2 className="mt-5 text-2xl font-bold leading-tight sm:text-3xl tracking-tight">
               Local delivery. Global standards.
               <br />
               Institutional strength.

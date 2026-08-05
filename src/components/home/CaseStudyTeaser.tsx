@@ -18,7 +18,7 @@ export default function CaseStudyTeaser() {
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Our work
               </p>
-              <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl tracking-tight">
+              <h2 className="mt-5 text-2xl font-bold leading-tight text-black sm:text-3xl tracking-tight">
                 Assets our clients trust us with.
               </h2>
             </div>

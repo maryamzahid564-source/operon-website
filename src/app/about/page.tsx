@@ -36,7 +36,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Who we are
             </p>
-            <h1 className="mt-5 text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl">
+            <h1 className="mt-5 text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
               Built on trust.
               <br />
               Delivered with purpose.
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               What guides us
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
+            <h2 className="mt-4 text-2xl font-bold text-black sm:text-3xl tracking-tight">
               Five values we hold ourselves to.
             </h2>
           </Reveal>
@@ -131,7 +131,7 @@ export default function AboutPage() {
             {brandValues.map((v, i) => (
               <Reveal key={v.title} delay={i * 60}>
                 <div className="border-t-2 border-green pt-5">
-                  <h3 className="text-base font-bold text-black">{v.title}</h3>
+                  <h3 className="text-lg font-bold text-black">{v.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-grey">{v.body}</p>
                 </div>
               </Reveal>
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Powered by UEM Edgenta
             </p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl tracking-tight">
+            <h2 className="mt-4 max-w-2xl text-2xl font-bold text-black sm:text-3xl tracking-tight">
               Global expertise behind our local delivery.
             </h2>
           </Reveal>

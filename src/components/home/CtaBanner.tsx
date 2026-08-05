@@ -15,7 +15,7 @@ export default function CtaBanner() {
       />
       <Container className="relative flex flex-col items-start gap-8 sm:items-center sm:text-center">
         <Reveal className="flex flex-col items-start gap-8 sm:items-center">
-          <h2 className="max-w-2xl text-3xl font-black leading-tight sm:text-4xl tracking-tight">
+          <h2 className="max-w-2xl text-2xl font-bold leading-tight sm:text-3xl tracking-tight">
             Let&rsquo;s talk about your portfolio.
           </h2>
           <p className="max-w-xl text-white/60">

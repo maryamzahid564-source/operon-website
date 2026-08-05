@@ -119,7 +119,7 @@ export default async function CaseStudyPage({
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               More work
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
+            <h2 className="mt-4 text-2xl font-bold text-black sm:text-3xl tracking-tight">
               Other case studies
             </h2>
           </Reveal>

@@ -11,7 +11,7 @@ export default function Values() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Our values
             </p>
-            <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl tracking-tight">
+            <h2 className="mt-5 text-2xl font-bold leading-tight text-black sm:text-3xl tracking-tight">
               Guided by UEM Edgenta&rsquo;s FIRST values.
             </h2>
           </div>

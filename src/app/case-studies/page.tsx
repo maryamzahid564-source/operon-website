@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
 
       <div className="border-y border-black/10 bg-mist py-6">
         <Container className="flex flex-wrap items-center gap-x-8 gap-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-grey">
+          <span className="text-xs font-bold uppercase tracking-widest text-grey">
             Selected clients
           </span>
           {clients.map((c) => (
@@ -64,7 +64,7 @@ export default function CaseStudiesPage() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Across our portfolio
             </p>
-            <h2 className="mt-4 max-w-2xl text-2xl font-black text-black sm:text-3xl tracking-tight">
+            <h2 className="mt-4 max-w-2xl text-2xl font-bold text-black sm:text-3xl tracking-tight">
               The places behind our work.
             </h2>
           </Reveal>

@@ -128,7 +128,7 @@ export default async function ServicePage({
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                   How it works
                 </p>
-                <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
+                <h2 className="mt-4 text-2xl font-bold text-black sm:text-3xl tracking-tight">
                   {service.framework.heading}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-grey">
@@ -143,7 +143,7 @@ export default async function ServicePage({
                     <span className="text-sm font-bold text-green">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-3 text-base font-bold leading-snug text-black">
+                    <h3 className="mt-3 text-lg font-bold leading-snug text-black">
                       {step.title}
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-grey">
@@ -165,7 +165,7 @@ export default async function ServicePage({
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                   Group impact
                 </p>
-                <h2 className="mt-4 text-2xl font-black sm:text-3xl tracking-tight">
+                <h2 className="mt-4 text-2xl font-bold sm:text-3xl tracking-tight">
                   {service.groupImpact.heading}
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-white/60">
@@ -196,7 +196,7 @@ export default async function ServicePage({
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Explore more
             </p>
-            <h2 className="mt-4 text-2xl font-black text-black sm:text-3xl tracking-tight">
+            <h2 className="mt-4 text-2xl font-bold text-black sm:text-3xl tracking-tight">
               Other services
             </h2>
           </Reveal>
@@ -207,7 +207,7 @@ export default async function ServicePage({
                   href={`/services/${s.slug}`}
                   className="group flex h-full flex-col justify-between rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-black hover:bg-black"
                 >
-                  <span className="text-sm font-bold text-black transition-colors group-hover:text-white">
+                  <span className="text-base font-bold text-black transition-colors group-hover:text-white">
                     {s.name}
                   </span>
                   <span className="mt-6 flex h-9 w-9 items-center justify-center rounded-full border border-black/15 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">

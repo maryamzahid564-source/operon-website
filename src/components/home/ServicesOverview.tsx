@@ -12,7 +12,7 @@ export default function ServicesOverview() {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               What we do
             </p>
-            <h2 className="mt-5 text-3xl font-black leading-tight text-black sm:text-4xl tracking-tight">
+            <h2 className="mt-5 text-2xl font-bold leading-tight text-black sm:text-3xl tracking-tight">
               Six disciplines. One accountable partner.
             </h2>
           </div>
@@ -29,10 +29,10 @@ export default function ServicesOverview() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-black transition-colors group-hover:text-green sm:text-2xl">
+                  <h3 className="text-lg font-bold text-black transition-colors group-hover:text-green sm:text-xl">
                     {s.name}
                   </h3>
-                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-grey">
+                  <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-grey">
                     {s.summary}
                   </p>
                 </div>
