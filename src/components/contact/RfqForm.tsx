@@ -83,25 +83,25 @@ export default function RfqForm() {
           <label htmlFor="name" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
             Full name
           </label>
-          <input id="name" name="name" type="text" required className={inputClass} />
+          <input id="name" name="name" type="text" required maxLength={200} className={inputClass} />
         </div>
         <div>
           <label htmlFor="company" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
             Company
           </label>
-          <input id="company" name="company" type="text" required className={inputClass} />
+          <input id="company" name="company" type="text" required maxLength={200} className={inputClass} />
         </div>
         <div>
           <label htmlFor="email" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
             Email
           </label>
-          <input id="email" name="email" type="email" required className={inputClass} />
+          <input id="email" name="email" type="email" required maxLength={320} className={inputClass} />
         </div>
         <div>
           <label htmlFor="phone" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
             Phone
           </label>
-          <input id="phone" name="phone" type="tel" required className={inputClass} />
+          <input id="phone" name="phone" type="tel" required maxLength={50} className={inputClass} />
         </div>
       </div>
 
@@ -151,7 +151,7 @@ export default function RfqForm() {
           <label htmlFor="assets" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
             Number of assets / sites
           </label>
-          <input id="assets" name="assets" type="text" placeholder="e.g. 3" className={inputClass} />
+          <input id="assets" name="assets" type="text" placeholder="e.g. 3" maxLength={100} className={inputClass} />
         </div>
       </div>
 
@@ -159,7 +159,7 @@ export default function RfqForm() {
         <label htmlFor="message" className="mb-2 block text-xs font-bold uppercase tracking-wide text-black/60">
           Tell us about your requirements
         </label>
-        <textarea id="message" name="message" rows={5} required className={inputClass} />
+        <textarea id="message" name="message" rows={5} required maxLength={5000} className={inputClass} />
       </div>
 
       {status === "error" && (

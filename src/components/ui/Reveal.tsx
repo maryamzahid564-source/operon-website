@@ -16,7 +16,13 @@ export default function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    // Arm the hidden "from" state only on the client, just before observing.
+    // Server HTML carries no attribute, so content stays visible without JS;
+    // the observer's async callback then flips it to "in", so the CSS
+    // transition has a real opacity/transform change to animate.
+    el.setAttribute("data-reveal", "");
 
     const observer = new IntersectionObserver(
       ([entry]) => {

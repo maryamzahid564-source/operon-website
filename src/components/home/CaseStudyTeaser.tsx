@@ -31,7 +31,7 @@ export default function CaseStudyTeaser() {
         <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3">
           {featured.map((c, i) => (
             <Reveal key={c.slug} delay={i * 80}>
-              <Link href="/case-studies" className="group block">
+              <Link href={`/case-studies/${c.slug}`} className="group block">
                 <Photo
                   src={photoFor(`case-studies/${c.slug}`)}
                   alt={c.title}

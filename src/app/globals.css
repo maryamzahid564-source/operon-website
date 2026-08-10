@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+@theme {
   --color-green: #55a755;
   --color-grey: #686868;
   --color-black: #1a1a1a;
@@ -10,12 +10,6 @@
 }
 
 @theme inline {
-  --color-green: var(--color-green);
-  --color-grey: var(--color-grey);
-  --color-black: var(--color-black);
-  --color-ink: var(--color-ink);
-  --color-tint: var(--color-tint);
-  --color-mist: var(--color-mist);
   --font-sans: var(--font-gotham);
 }
 

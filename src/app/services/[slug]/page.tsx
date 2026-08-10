@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import Photo from "@/components/ui/Photo";
@@ -79,12 +80,9 @@ export default async function ServicePage({
                 {service.description}
               </p>
               <div className="mt-8">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-green px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#488f48]"
-                >
+                <Button href="/contact" variant="primary">
                   Request a Proposal
-                </Link>
+                </Button>
               </div>
             </div>
           </Reveal>

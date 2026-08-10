@@ -75,9 +75,13 @@ export async function POST(request: Request) {
   const sector = cleanString(body.sector, LIMITS.sector) ?? "";
   const assets = cleanString(body.assets, LIMITS.assets) ?? "";
   const selectedServices = Array.isArray(body.services)
-    ? body.services.filter(
-        (s): s is string => typeof s === "string" && KNOWN_SERVICES.has(s)
-      )
+    ? [
+        ...new Set(
+          body.services.filter(
+            (s): s is string => typeof s === "string" && KNOWN_SERVICES.has(s)
+          )
+        ),
+      ]
     : [];
 
   if (!name || !company || !email || !phone || !message || !EMAIL_RE.test(email)) {

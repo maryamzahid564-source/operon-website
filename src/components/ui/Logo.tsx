@@ -12,12 +12,15 @@ export default function Logo({
   const suffix = variant === "white" ? "-white" : "";
   return (
     <span className={`inline-flex items-center gap-3 ${className}`}>
+      {/* Fixed height, auto width: the colour (512x492) and white (512x511)
+          artwork have different intrinsic ratios, and neither is square —
+          letting the browser derive width keeps the mark undistorted. */}
       <Image
         src={`/images/logo-icon${suffix}.png`}
         alt=""
-        width={38}
-        height={38}
-        className="shrink-0"
+        width={256}
+        height={246}
+        className="h-[38px] w-auto shrink-0"
         priority
       />
       <Image
