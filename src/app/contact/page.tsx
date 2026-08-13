@@ -4,9 +4,10 @@ import Reveal from "@/components/ui/Reveal";
 import RfqForm from "@/components/contact/RfqForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Operon Middle East",
+  title: "Contact & Request a Proposal",
   description:
-    "Get in touch with Operon Middle East or submit a request for a facilities management proposal.",
+    "Request a facilities management proposal from Operon Middle East. Call +971 800 4145 or tell us about your assets — hard FM, soft FM, energy and technology across Dubai and the UAE.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

@@ -8,6 +8,7 @@ import Photo from "@/components/ui/Photo";
 import CtaBanner from "@/components/home/CtaBanner";
 import { services } from "@/lib/content";
 import { photoFor } from "@/lib/images";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -22,8 +23,13 @@ export async function generateMetadata({
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.name} | Operon Middle East`,
-    description: service.summary,
+    title: `${service.name} Services in Dubai & the UAE`,
+    description: `${service.name} from Operon Middle East — ${service.summary} Serving Dubai and the UAE since 2008.`,
+    alternates: { canonical: `/services/${service.slug}` },
+    openGraph: {
+      title: `${service.name} Services in Dubai & the UAE | Operon Middle East`,
+      description: service.summary,
+    },
   };
 }
 
@@ -38,8 +44,26 @@ export default async function ServicePage({
 
   const otherServices = services.filter((s) => s.slug !== service.slug);
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.summary,
+    url: `${SITE_URL}/services/${service.slug}`,
+    areaServed: "AE",
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <section className="bg-white pt-16 sm:pt-20 lg:pt-24">
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <Reveal>

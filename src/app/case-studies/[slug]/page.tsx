@@ -21,8 +21,9 @@ export async function generateMetadata({
   const study = caseStudies.find((c) => c.slug === slug);
   if (!study) return {};
   return {
-    title: `${study.title} | Operon Middle East`,
+    title: `${study.title} — ${study.sector} FM Project`,
     description: study.valueDelivered,
+    alternates: { canonical: `/case-studies/${study.slug}` },
   };
 }
 

@@ -8,9 +8,10 @@ import CtaBanner from "@/components/home/CtaBanner";
 import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Who We Are | Operon Middle East",
+  title: "Who We Are",
   description:
-    "Operon Middle East is an integrated facilities management company based in the UAE, part of the UEM Edgenta Group — built on trust, delivered with purpose.",
+    "Operon Middle East is an integrated facilities management company in Dubai, UAE — part of the UEM Edgenta Group. Built on trust, delivered with purpose since 2008.",
+  alternates: { canonical: "/about" },
 };
 
 const brandValues = [

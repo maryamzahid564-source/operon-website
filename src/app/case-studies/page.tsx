@@ -8,9 +8,10 @@ import { caseStudies, clients, portfolio } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Projects | Operon Middle East",
+  title: "Projects & Case Studies",
   description:
-    "Selected facilities management work across residential, commercial, hospitality and specialised assets in the UAE.",
+    "Facilities management projects across Dubai and the UAE — master communities, commercial towers, golf and leisure destinations, retail and specialised assets managed by Operon Middle East.",
+  alternates: { canonical: "/case-studies" },
 };
 
 export default function CaseStudiesPage() {
