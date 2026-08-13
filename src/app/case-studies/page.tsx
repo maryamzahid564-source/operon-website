@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
                   src={photoFor(`portfolio/p${n}`)}
                   alt=""
                   aspect="aspect-[4/3]"
-                  className="rounded-xl"
+                  className=""
                   sizes="(min-width: 1024px) 25vw, 50vw"
                 />
               </Reveal>

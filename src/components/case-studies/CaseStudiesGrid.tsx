@@ -26,10 +26,10 @@ export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStud
             key={sector}
             aria-pressed={active === sector}
             onClick={() => setActive(sector)}
-            className={`rounded-full border px-5 py-2.5 text-sm font-medium transition-colors ${
+            className={`border px-5 py-2.5 text-xs font-bold uppercase tracking-[0.14em] transition-colors ${
               active === sector
                 ? "border-green bg-green text-white"
-                : "border-black/15 text-black/70 hover:border-black/40"
+                : "border-black/20 text-black/70 hover:border-black"
             }`}
           >
             {sector}
@@ -45,7 +45,7 @@ export default function CaseStudiesGrid({ caseStudies }: { caseStudies: CaseStud
                 src={c.imageSrc}
                 alt={c.title}
                 aspect="aspect-[4/3]"
-                className="rounded-2xl"
+                className=""
                   imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               />

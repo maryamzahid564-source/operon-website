@@ -67,7 +67,7 @@ export default async function CaseStudyPage({
             src={photoFor(`case-studies/${study.slug}`)}
             alt={study.title}
             aspect="aspect-[21/9]"
-            className="rounded-3xl"
+            className=""
             sizes="(min-width: 1280px) 1152px, 100vw"
             priority
           />
@@ -131,7 +131,7 @@ export default async function CaseStudyPage({
                     src={photoFor(`case-studies/${c.slug}`)}
                     alt={c.title}
                     aspect="aspect-[4/3]"
-                    className="rounded-2xl"
+                    className=""
                   imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     sizes="(min-width: 640px) 33vw, 100vw"
                   />

@@ -36,7 +36,7 @@ export default function ServicesOverview() {
                     {s.summary}
                   </p>
                 </div>
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-black/15 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-black/20 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
                   <svg width="16" height="12" viewBox="0 0 14 10" fill="none">
                     <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

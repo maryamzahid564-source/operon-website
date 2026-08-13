@@ -66,7 +66,7 @@ export default function AboutPage() {
               src={photoFor("about-team")}
               alt="Operon technicians at work on site"
               aspect="aspect-[4/5] max-h-[640px]"
-              className="rounded-3xl"
+              className=""
               sizes="(min-width: 1024px) 50vw, 100vw"
               priority
             />
@@ -77,7 +77,7 @@ export default function AboutPage() {
       <section className="bg-white py-20 sm:py-24">
         <Container className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-3xl bg-mist p-10">
+            <div className="h-full border-t-2 border-green pt-8">
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Our mission
               </p>
@@ -89,7 +89,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={80}>
-            <div className="h-full rounded-3xl bg-mist p-10">
+            <div className="h-full border-t-2 border-green pt-8">
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Our vision
               </p>
@@ -144,6 +144,34 @@ export default function AboutPage() {
 
       <WhyOperon />
 
+      <section className="border-t border-black/10 bg-mist py-20 sm:py-24">
+        <Container>
+          <Reveal>
+            <span className="mb-5 block h-0.5 w-10 bg-green" />
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+              Our team
+            </p>
+            <h2 className="mt-4 max-w-2xl text-2xl font-bold text-black sm:text-3xl tracking-tight">
+              The people behind the delivery.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {[1, 2, 3, 4].map((n, i) => (
+              <Reveal key={n} delay={i * 70}>
+                <div className="aspect-[3/4] w-full bg-[#e7e7e7]" />
+                <div className="mt-4 h-3.5 w-2/3 bg-black/10" />
+                <div className="mt-2 h-3 w-1/2 bg-black/5" />
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={100}>
+            <p className="mt-8 text-xs leading-relaxed text-grey">
+              Leadership profiles and photography arriving with the upcoming shoot.
+            </p>
+          </Reveal>
+        </Container>
+      </section>
+
       <section className="bg-white py-20 sm:py-24">
         <Container>
           <Reveal>
@@ -161,7 +189,7 @@ export default function AboutPage() {
                   src={photoFor(g.slot)}
                   alt={g.name}
                   aspect="aspect-[4/3]"
-                  className="rounded-2xl"
+                  className=""
                   sizes="(min-width: 640px) 33vw, 100vw"
                 />
                 <p className="mt-4 text-base font-bold text-black">{g.name}</p>

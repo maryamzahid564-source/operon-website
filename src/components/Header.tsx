@@ -1,28 +1,62 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Container from "./ui/Container";
-import Logo from "./ui/Logo";
 import { services } from "@/lib/content";
 
 const navLink =
-  "relative text-sm font-medium text-black/70 transition-colors hover:text-black after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-green after:transition-all after:duration-300 hover:after:w-full";
+  "text-xs font-bold uppercase tracking-[0.18em] text-black/70 transition-colors hover:text-black group-data-[overlay=true]:text-white/85 group-data-[overlay=true]:hover:text-white";
 
 export default function Header() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Transparent over the homepage hero; solid everywhere else and on scroll.
+  const overlay = pathname === "/" && !scrolled && !open;
+
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur">
+    <header
+      data-scrolled={scrolled}
+      data-overlay={overlay}
+      className="group fixed inset-x-0 top-0 z-50 transition-colors duration-300 data-[overlay=false]:border-b data-[overlay=false]:border-black/10 data-[overlay=false]:bg-white/95 data-[overlay=false]:backdrop-blur data-[overlay=true]:bg-transparent"
+    >
       <Container className="flex h-20 items-center justify-between">
-        <Link href="/" onClick={() => setOpen(false)}>
-          <Logo />
+        <Link href="/" onClick={() => setOpen(false)} aria-label="Operon — home">
+          {/* The complete original lock-up in its compact format — colour on
+              light backgrounds, white reversed over the hero. */}
+          <Image
+            src="/images/logo-full.png"
+            alt="Operon — An Edgenta Company"
+            width={166}
+            height={180}
+            className="h-14 w-auto group-data-[overlay=true]:hidden"
+            priority
+          />
+          <Image
+            src="/images/logo-full-white.png"
+            alt="Operon — An Edgenta Company"
+            width={166}
+            height={180}
+            className="hidden h-14 w-auto group-data-[overlay=true]:block"
+            priority
+          />
         </Link>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           <div
-            className="group relative"
+            className="relative"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
             onKeyDown={(e) => {
@@ -36,19 +70,19 @@ export default function Header() {
               className={`flex items-center gap-1.5 ${navLink}`}
             >
               Services
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-px">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
             {servicesOpen && (
-              <div className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-5">
-                <div className="rounded-2xl border border-black/10 bg-white p-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.15)]">
+              <div className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-6">
+                <div className="border border-black/10 bg-white py-2 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.25)]">
                   {services.map((s) => (
                     <Link
                       key={s.slug}
                       href={`/services/${s.slug}`}
                       onClick={() => setServicesOpen(false)}
-                      className="block rounded-xl px-4 py-3 text-sm text-black/70 transition-colors hover:bg-mist hover:text-green"
+                      className="block px-6 py-3 text-sm text-black/70 transition-colors hover:bg-mist hover:text-green"
                     >
                       {s.name}
                     </Link>
@@ -66,16 +100,13 @@ export default function Header() {
           <Link href="/contact" className={navLink}>
             Contact
           </Link>
-        </nav>
-
-        <div className="hidden lg:block">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-green px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#488f48]"
+            className="ml-2 inline-flex items-center border border-black px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-black transition-colors hover:bg-black hover:text-white group-data-[overlay=true]:border-white group-data-[overlay=true]:text-white group-data-[overlay=true]:hover:bg-white group-data-[overlay=true]:hover:text-black"
           >
             Request a Proposal
           </Link>
-        </div>
+        </nav>
 
         <button
           aria-label="Toggle menu"
@@ -83,9 +114,9 @@ export default function Header() {
           className="flex flex-col gap-1.5 lg:hidden"
           onClick={() => setOpen(!open)}
         >
-          <span className={`h-px w-7 bg-black transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`h-px w-7 bg-black transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span className={`h-px w-7 bg-black transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+          <span className={`h-px w-7 bg-black transition-transform group-data-[overlay=true]:bg-white ${open ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`h-px w-7 bg-black transition-opacity group-data-[overlay=true]:bg-white ${open ? "opacity-0" : ""}`} />
+          <span className={`h-px w-7 bg-black transition-transform group-data-[overlay=true]:bg-white ${open ? "-translate-y-2 -rotate-45" : ""}`} />
         </button>
       </Container>
 
@@ -100,25 +131,25 @@ export default function Header() {
                 key={s.slug}
                 href={`/services/${s.slug}`}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-2.5 text-sm text-black/70 hover:bg-mist"
+                className="px-2 py-2.5 text-sm text-black/70 hover:bg-mist"
               >
                 {s.name}
               </Link>
             ))}
             <div className="my-3 h-px bg-black/10" />
-            <Link href="/case-studies" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
+            <Link href="/case-studies" onClick={() => setOpen(false)} className="px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
               Projects
             </Link>
-            <Link href="/about" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
+            <Link href="/about" onClick={() => setOpen(false)} className="px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
               About
             </Link>
-            <Link href="/contact" onClick={() => setOpen(false)} className="rounded-lg px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
+            <Link href="/contact" onClick={() => setOpen(false)} className="px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
               Contact
             </Link>
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-4 inline-flex items-center justify-center rounded-full bg-green px-6 py-3.5 text-xs font-bold uppercase tracking-wide text-white"
+              className="mt-4 inline-flex items-center justify-center bg-green px-6 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white"
             >
               Request a Proposal
             </Link>

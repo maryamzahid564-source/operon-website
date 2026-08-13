@@ -12,7 +12,7 @@ const sectors = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm text-black placeholder:text-black/30 outline-none transition-colors focus:border-green";
+  "w-full rounded-none border-0 border-b border-black/25 bg-transparent px-0 py-3 text-base text-black placeholder:text-black/30 outline-none transition-colors focus:border-green";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -61,7 +61,7 @@ export default function RfqForm() {
 
   if (status === "success") {
     return (
-      <div role="status" className="rounded-2xl border border-green/30 bg-tint p-10 text-center">
+      <div role="status" className="border border-green/30 bg-tint p-10 text-center">
         <p className="text-lg font-bold text-black">Thank you.</p>
         <p className="mt-2 text-sm leading-relaxed text-grey">
           We&rsquo;ve received your request and will be in touch shortly.
@@ -118,10 +118,10 @@ export default function RfqForm() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => toggleService(s.name)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                className={`border px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors ${
                   active
                     ? "border-green bg-green text-white"
-                    : "border-black/15 text-black/70 hover:border-black/40"
+                    : "border-black/20 text-black/70 hover:border-black"
                 }`}
               >
                 {s.name}
@@ -175,7 +175,7 @@ export default function RfqForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-full bg-green px-8 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#488f48] disabled:opacity-60"
+        className="inline-flex items-center justify-center bg-green px-8 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-[#488f48] disabled:opacity-60"
       >
         {status === "submitting" ? "Submitting..." : "Submit Request"}
       </button>

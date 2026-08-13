@@ -61,7 +61,7 @@ export default async function ServicePage({
               src={photoFor(`services/${service.slug}`)}
               alt={service.name}
               aspect="aspect-[4/5] max-h-[640px]"
-              className="rounded-3xl"
+              className=""
               sizes="(min-width: 1024px) 50vw, 100vw"
               priority
             />
@@ -137,7 +137,7 @@ export default async function ServicePage({
             <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
               {service.framework.steps.map((step, i) => (
                 <Reveal key={step.title} delay={i * 70} className="h-full">
-                  <div className="flex h-full flex-col rounded-2xl bg-mist p-6">
+                  <div className="flex h-full flex-col bg-mist p-6">
                     <span className="text-sm font-bold text-green">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -203,12 +203,12 @@ export default async function ServicePage({
               <Reveal key={s.slug} delay={i * 60} className="h-full">
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full flex-col justify-between rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-black hover:bg-black"
+                  className="group flex h-full flex-col justify-between border border-black/10 bg-white p-6 transition-colors hover:border-black hover:bg-black"
                 >
                   <span className="text-base font-bold text-black transition-colors group-hover:text-white">
                     {s.name}
                   </span>
-                  <span className="mt-6 flex h-9 w-9 items-center justify-center rounded-full border border-black/15 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
+                  <span className="mt-6 flex h-9 w-9 items-center justify-center border border-black/20 text-black transition-all group-hover:border-green group-hover:bg-green group-hover:text-white">
                     <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                       <path
                         d="M1 5H13M13 5L9 1M13 5L9 9"
