@@ -32,7 +32,7 @@ export default function Header() {
       data-overlay={overlay}
       className="group fixed inset-x-0 top-0 z-50 transition-colors duration-300 data-[overlay=false]:border-b data-[overlay=false]:border-black/10 data-[overlay=false]:bg-white/95 data-[overlay=false]:backdrop-blur data-[overlay=true]:bg-transparent"
     >
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-20 items-center justify-between lg:h-24">
         <Link href="/" onClick={() => setOpen(false)} aria-label="Operon — home">
           {/* The complete original lock-up in its compact format — colour on
               light backgrounds, white reversed over the hero. */}
@@ -41,7 +41,7 @@ export default function Header() {
             alt="Operon — An Edgenta Company"
             width={166}
             height={180}
-            className="h-14 w-auto group-data-[overlay=true]:hidden"
+            className="h-[3.75rem] w-auto group-data-[overlay=true]:hidden lg:h-[4.75rem]"
             priority
           />
           <Image
@@ -49,7 +49,7 @@ export default function Header() {
             alt="Operon — An Edgenta Company"
             width={166}
             height={180}
-            className="hidden h-14 w-auto group-data-[overlay=true]:block"
+            className="hidden h-[3.75rem] w-auto group-data-[overlay=true]:block lg:h-[4.75rem]"
             priority
           />
         </Link>
@@ -95,7 +95,7 @@ export default function Header() {
             Projects
           </Link>
           <Link href="/about" className={navLink}>
-            About
+            Who We Are
           </Link>
           <Link href="/contact" className={navLink}>
             Contact
@@ -141,7 +141,7 @@ export default function Header() {
               Projects
             </Link>
             <Link href="/about" onClick={() => setOpen(false)} className="px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
-              About
+              Who We Are
             </Link>
             <Link href="/contact" onClick={() => setOpen(false)} className="px-2 py-2.5 text-sm font-medium text-black/80 hover:bg-mist">
               Contact

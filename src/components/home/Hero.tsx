@@ -12,7 +12,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative -mt-20 flex min-h-[92svh] flex-col justify-end overflow-hidden bg-black">
+      <section className="relative -mt-20 flex min-h-[92svh] lg:-mt-24 flex-col justify-end overflow-hidden bg-black">
         <div className="kenburns absolute inset-0">
           {heroSrc ? (
             <Image
