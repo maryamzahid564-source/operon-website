@@ -4,7 +4,7 @@ import { values } from "@/lib/content";
 
 export default function Values() {
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section className="bg-white py-16 sm:py-24">
       <Container>
         <Reveal>
           <div className="max-w-2xl">

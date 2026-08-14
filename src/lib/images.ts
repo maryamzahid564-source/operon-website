@@ -16,3 +16,15 @@ export function photoFor(slot: string): string | null {
   }
   return null;
 }
+
+// Same convention for an optional hero film clip: drop home-hero.mp4 (or
+// .webm) into public/images/photos/ and the homepage uses it automatically.
+export function videoFor(slot: string): string | null {
+  for (const ext of ["mp4", "webm"]) {
+    const rel = `${PHOTO_ROOT}/${slot}.${ext}`;
+    if (fs.existsSync(path.join(process.cwd(), "public", rel))) {
+      return `/${rel}`;
+    }
+  }
+  return null;
+}

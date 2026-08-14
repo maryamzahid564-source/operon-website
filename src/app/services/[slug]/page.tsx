@@ -93,7 +93,7 @@ export default async function ServicePage({
         </Container>
       </section>
 
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-24">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
             <div className="lg:sticky lg:top-28">
@@ -143,7 +143,7 @@ export default async function ServicePage({
       </section>
 
       {service.framework && (
-        <section className="bg-white pb-24 sm:pb-32">
+        <section className="bg-white pb-16 sm:pb-24">
           <Container>
             <Reveal>
               <div className="max-w-2xl">
@@ -180,7 +180,7 @@ export default async function ServicePage({
       )}
 
       {service.groupImpact && (
-        <section className="bg-black py-24 text-white sm:py-32">
+        <section className="bg-black py-16 text-white sm:py-24">
           <Container>
             <Reveal>
               <div className="max-w-2xl">
@@ -212,7 +212,7 @@ export default async function ServicePage({
         </section>
       )}
 
-      <section className="bg-mist py-20 sm:py-24">
+      <section className="bg-mist py-14 sm:py-20">
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">

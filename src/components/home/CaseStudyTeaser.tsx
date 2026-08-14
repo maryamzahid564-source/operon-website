@@ -39,7 +39,7 @@ function ShowcaseCard({
         <div className="absolute inset-0 bg-mist" />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+      <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out group-hover:-translate-y-1.5 sm:p-8">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-green">
           {sector} &middot; {location}
         </p>
@@ -55,7 +55,7 @@ export default function CaseStudyTeaser() {
   const [featured, second, third] = caseStudies;
 
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section className="bg-white py-16 sm:py-24">
       <Container>
         <Reveal>
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">

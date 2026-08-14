@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isStaticExport = process.env.STATIC_EXPORT === "1";
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -7,10 +9,18 @@ const securityHeaders = [
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
 ];
 
-const nextConfig: NextConfig = {
-  async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
-  },
-};
+const nextConfig: NextConfig = isStaticExport
+  ? {
+      // Review builds: a fully static site (all client-side animation intact)
+      // that deploys to any static host via drag and drop.
+      output: "export",
+      trailingSlash: true,
+      images: { unoptimized: true },
+    }
+  : {
+      async headers() {
+        return [{ source: "/(.*)", headers: securityHeaders }];
+      },
+    };
 
 export default nextConfig;

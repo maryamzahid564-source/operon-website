@@ -15,7 +15,7 @@ export default function WhyOperon() {
   const bg = photoFor("portfolio/p5");
 
   return (
-    <section className="relative overflow-hidden bg-black py-24 text-white sm:py-32">
+    <section className="relative overflow-hidden bg-black py-16 text-white sm:py-24">
       {bg && (
         <Image
           src={bg}

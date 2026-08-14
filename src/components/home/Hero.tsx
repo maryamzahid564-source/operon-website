@@ -5,16 +5,28 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import { stats, credentials } from "@/lib/content";
-import { photoFor } from "@/lib/images";
+import { photoFor, videoFor } from "@/lib/images";
 
 export default function Hero() {
   const heroSrc = photoFor("home-hero");
+  const heroVideo = videoFor("home-hero");
 
   return (
     <>
       <section className="relative -mt-20 flex min-h-[92svh] lg:-mt-24 flex-col justify-end overflow-hidden bg-black">
         <div className="kenburns absolute inset-0">
-          {heroSrc ? (
+          {heroVideo ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={heroSrc ?? undefined}
+            >
+              <source src={heroVideo} />
+            </video>
+          ) : heroSrc ? (
             <Image
               src={heroSrc}
               alt="Aerial view of a managed community in the Operon portfolio"
@@ -27,7 +39,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[#2a2a2a]" />
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
         <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 to-transparent" />
 
         <Container className="relative pb-20 pt-44 sm:pb-24">

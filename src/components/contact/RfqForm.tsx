@@ -44,6 +44,15 @@ export default function RfqForm() {
       website: formData.get("website"),
     };
 
+    // Static review builds have no API — acknowledge the submission client-side.
+    if (process.env.NEXT_PUBLIC_STATIC_PREVIEW === "1") {
+      await new Promise((r) => setTimeout(r, 600));
+      setStatus("success");
+      form.reset();
+      setSelectedServices([]);
+      return;
+    }
+
     try {
       const res = await fetch("/api/rfq", {
         method: "POST",

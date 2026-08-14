@@ -75,7 +75,7 @@ export default async function CaseStudyPage({
         </Container>
       </Reveal>
 
-      <section className="py-24 sm:py-32">
+      <section className="py-16 sm:py-24">
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-3">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
@@ -114,7 +114,7 @@ export default async function CaseStudyPage({
         </Container>
       </section>
 
-      <section className="bg-mist py-20 sm:py-24">
+      <section className="bg-mist py-14 sm:py-20">
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">

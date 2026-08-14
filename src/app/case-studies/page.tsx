@@ -53,13 +53,13 @@ export default function CaseStudiesPage() {
         </Container>
       </div>
 
-      <section className="py-20 sm:py-24">
+      <section className="py-14 sm:py-20">
         <Container>
           <CaseStudiesGrid caseStudies={caseStudiesWithImages} />
         </Container>
       </section>
 
-      <section className="border-t border-black/10 bg-mist py-20 sm:py-24">
+      <section className="border-t border-black/10 bg-mist py-14 sm:py-20">
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">

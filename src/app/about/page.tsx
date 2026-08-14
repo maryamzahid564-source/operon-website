@@ -75,7 +75,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-14 sm:py-20">
         <Container className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           <Reveal>
             <div className="h-full border-t-2 border-green pt-8">
@@ -118,7 +118,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-14 sm:py-20">
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
@@ -145,7 +145,7 @@ export default function AboutPage() {
 
       <WhyOperon />
 
-      <section className="border-t border-black/10 bg-mist py-20 sm:py-24">
+      <section className="border-t border-black/10 bg-mist py-14 sm:py-20">
         <Container>
           <Reveal>
             <span className="mb-5 block h-0.5 w-10 bg-green" />
@@ -173,7 +173,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-14 sm:py-20">
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">

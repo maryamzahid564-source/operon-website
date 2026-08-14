@@ -8,7 +8,7 @@ import Container from "./ui/Container";
 import { services } from "@/lib/content";
 
 const navLink =
-  "text-xs font-bold uppercase tracking-[0.18em] text-black/70 transition-colors hover:text-black group-data-[overlay=true]:text-white/85 group-data-[overlay=true]:hover:text-white";
+  "relative text-xs font-bold uppercase tracking-[0.18em] text-black/70 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-green after:transition-transform after:duration-300 hover:text-black hover:after:scale-x-100 group-data-[overlay=true]:text-white/85 group-data-[overlay=true]:hover:text-white";
 
 export default function Header() {
   const pathname = usePathname();
