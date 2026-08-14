@@ -11,6 +11,8 @@ function ShowcaseCard({
   title,
   sector,
   location,
+  index,
+  featured = false,
   className = "",
   sizes,
 }: {
@@ -18,6 +20,8 @@ function ShowcaseCard({
   title: string;
   sector: string;
   location: string;
+  index: number;
+  featured?: boolean;
   className?: string;
   sizes: string;
 }) {
@@ -33,19 +37,32 @@ function ShowcaseCard({
           alt={title}
           fill
           sizes={sizes}
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
         />
       ) : (
         <div className="absolute inset-0 bg-mist" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+      <span className="absolute left-6 top-6 text-sm font-black tracking-tight text-white/70 sm:left-8 sm:top-8">
+        {String(index).padStart(2, "0")}
+      </span>
       <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out group-hover:-translate-y-1.5 sm:p-8">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-green">
           {sector} &middot; {location}
         </p>
-        <h3 className="mt-2 text-xl font-bold leading-snug text-white sm:text-2xl">
+        <h3
+          className={`mt-2 font-bold leading-snug text-white ${
+            featured ? "text-2xl sm:text-3xl lg:text-4xl" : "text-xl sm:text-2xl"
+          }`}
+        >
           {title}
         </h3>
+        <span className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/0 transition-all duration-500 group-hover:text-white">
+          View project
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+            <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
       </div>
     </Link>
   );
@@ -55,12 +72,12 @@ export default function CaseStudyTeaser() {
   const [featured, second, third] = caseStudies;
 
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-white py-14 sm:py-20">
       <Container>
         <Reveal>
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
             <div className="max-w-2xl">
-              <span className="mb-5 block h-0.5 w-10 bg-green" />
+              <span className="mb-5 block h-0.5 w-12 bg-green" />
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Our work
               </p>
@@ -75,12 +92,14 @@ export default function CaseStudyTeaser() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mt-12 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
+          <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2">
             <ShowcaseCard
               slug={featured.slug}
               title={featured.title}
               sector={featured.sector}
               location={featured.location}
+              index={1}
+              featured
               className="aspect-[4/3] lg:col-span-2 lg:row-span-2 lg:aspect-auto"
               sizes="(min-width: 1024px) 66vw, 100vw"
             />
@@ -89,6 +108,7 @@ export default function CaseStudyTeaser() {
               title={second.title}
               sector={second.sector}
               location={second.location}
+              index={2}
               className="aspect-[16/10] lg:aspect-auto lg:min-h-[220px]"
               sizes="(min-width: 1024px) 33vw, 100vw"
             />
@@ -97,6 +117,7 @@ export default function CaseStudyTeaser() {
               title={third.title}
               sector={third.sector}
               location={third.location}
+              index={3}
               className="aspect-[16/10] lg:aspect-auto lg:min-h-[220px]"
               sizes="(min-width: 1024px) 33vw, 100vw"
             />

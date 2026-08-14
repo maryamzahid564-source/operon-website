@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import Reveal from "@/components/ui/Reveal";
 import CountUp from "@/components/ui/CountUp";
 import { stats, credentials } from "@/lib/content";
 import { photoFor, videoFor } from "@/lib/images";
@@ -13,7 +12,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative -mt-20 flex min-h-[92svh] lg:-mt-24 flex-col justify-end overflow-hidden bg-black">
+      <section className="relative -mt-20 flex min-h-[100svh] flex-col overflow-hidden bg-black lg:-mt-24">
         <div className="kenburns absolute inset-0">
           {heroVideo ? (
             <video
@@ -29,35 +28,46 @@ export default function Hero() {
           ) : heroSrc ? (
             <Image
               src={heroSrc}
-              alt="Aerial view of a managed community in the Operon portfolio"
+              alt="Commercial towers rising over managed green grounds"
               fill
               sizes="100vw"
               priority
-              className="object-cover"
+              className="object-cover object-[center_38%]"
             />
           ) : (
             <div className="absolute inset-0 bg-[#2a2a2a]" />
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25" />
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/65 to-transparent" />
 
-        <Container className="relative pb-20 pt-44 sm:pb-24">
-          <Reveal>
-            <span className="mb-5 block h-0.5 w-10 bg-green" />
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              Facilities Management &middot; UAE
-            </p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl">
+        <div className="relative flex flex-1 flex-col justify-center">
+          <Container className="pb-14 pt-40 sm:pb-16">
+            <div className="hero-el" style={{ animationDelay: "0.15s" }}>
+              <span className="mb-5 block h-0.5 w-12 bg-green" />
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                Facilities Management &middot; UAE
+              </p>
+            </div>
+            <h1
+              className="hero-el mt-6 max-w-5xl text-[2.75rem] font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
+              style={{ animationDelay: "0.3s" }}
+            >
               Measured by what
-              <br />
+              <br className="hidden sm:block" />
               we deliver.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            <p
+              className="hero-el mt-7 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg"
+              style={{ animationDelay: "0.5s" }}
+            >
               Integrated facilities management for 300+ buildings across the
               UAE &mdash; delivered to one standard since 2008.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
+            <div
+              className="hero-el mt-9 flex flex-wrap items-center gap-6"
+              style={{ animationDelay: "0.65s" }}
+            >
               <Button href="/contact" variant="primary">
                 Request a Proposal
               </Button>
@@ -71,40 +81,53 @@ export default function Hero() {
                 </svg>
               </Link>
             </div>
-          </Reveal>
-        </Container>
-      </section>
+          </Container>
 
-      <section className="bg-white">
-        <Container>
-          <Reveal>
-            <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:grid-cols-4 sm:py-16">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <CountUp
-                    value={s.value}
-                    className="text-3xl font-black tracking-tight text-green sm:text-4xl"
-                  />
-                  <p className="mt-2 text-sm leading-snug text-grey">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </Container>
-
-        <div className="border-y border-black/10 bg-mist">
-          <Container className="flex flex-wrap items-center gap-x-10 gap-y-3 py-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-grey">
-              Certifications &amp; memberships
+          <div
+            className="hero-el absolute bottom-10 right-10 hidden flex-col items-center gap-3 text-white/70 lg:flex"
+            style={{ animationDelay: "1s" }}
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em]">
+              Scroll
             </span>
-            {credentials.map((c) => (
-              <span key={c.name} className="text-sm text-black/70">
-                {c.name}
-              </span>
+            <span className="scroll-cue relative block h-14 w-px overflow-hidden bg-white/20" />
+          </div>
+        </div>
+
+        {/* Live numbers on the first screen — the story starts counting
+            before the visitor even scrolls. */}
+        <div
+          className="hero-el relative border-t border-white/15 bg-black/30 backdrop-blur-sm"
+          style={{ animationDelay: "0.85s" }}
+        >
+          <Container className="grid grid-cols-2 gap-x-6 gap-y-7 py-7 sm:grid-cols-4 sm:py-8">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <CountUp
+                  value={s.value}
+                  className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl"
+                />
+                <p className="mt-1.5 text-xs leading-snug text-white/65 sm:text-sm">
+                  {s.label}
+                </p>
+              </div>
             ))}
           </Container>
         </div>
       </section>
+
+      <div className="border-b border-black/10 bg-mist">
+        <Container className="flex flex-wrap items-center gap-x-10 gap-y-3 py-5">
+          <span className="text-xs font-bold uppercase tracking-widest text-grey">
+            Certifications &amp; memberships
+          </span>
+          {credentials.map((c) => (
+            <span key={c.name} className="text-sm text-black/70">
+              {c.name}
+            </span>
+          ))}
+        </Container>
+      </div>
     </>
   );
 }

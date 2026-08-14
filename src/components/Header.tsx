@@ -41,7 +41,7 @@ export default function Header() {
             alt="Operon — An Edgenta Company"
             width={166}
             height={180}
-            className="h-[3.75rem] w-auto group-data-[overlay=true]:hidden lg:h-[4.75rem]"
+            className="h-[4.25rem] w-auto group-data-[overlay=true]:hidden lg:h-[5.25rem]"
             priority
           />
           <Image
@@ -49,7 +49,7 @@ export default function Header() {
             alt="Operon — An Edgenta Company"
             width={166}
             height={180}
-            className="hidden h-[3.75rem] w-auto group-data-[overlay=true]:block lg:h-[4.75rem]"
+            className="hidden h-[4.25rem] w-auto group-data-[overlay=true]:block lg:h-[5.25rem]"
             priority
           />
         </Link>

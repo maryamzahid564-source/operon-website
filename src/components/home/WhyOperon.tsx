@@ -12,20 +12,20 @@ const chain = [
 ];
 
 export default function WhyOperon() {
-  const bg = photoFor("portfolio/p5");
+  const bg = photoFor("group-skyline") ?? photoFor("portfolio/p5");
 
   return (
-    <section className="relative overflow-hidden bg-black py-16 text-white sm:py-24">
+    <section className="relative overflow-hidden bg-black py-14 text-white sm:py-20">
       {bg && (
         <Image
           src={bg}
           alt=""
           fill
           sizes="100vw"
-          className="object-cover opacity-40"
+          className="object-cover opacity-50"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/35" />
 
       <Container className="relative">
         <Reveal>

@@ -28,27 +28,94 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .kenburns img {
-    animation: kenburns 26s ease-out both;
+  /* Slow cinematic settle on the hero image. */
+  .kenburns img,
+  .kenburns video {
+    animation: kenburns 22s ease-out both;
   }
 
   @keyframes kenburns {
     from {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
     to {
       transform: scale(1);
     }
   }
 
+  /* Hero entrance choreography — runs on load, no scroll needed. */
+  .hero-el {
+    opacity: 0;
+    animation: heroUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes heroUp {
+    from {
+      opacity: 0;
+      transform: translateY(34px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-triggered reveals. */
   [data-reveal] {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(26px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   [data-reveal="in"] {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Continuous client marquee. */
+  .marquee-track {
+    animation: marquee 36s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pulsing scroll cue on the hero. */
+  .scroll-cue::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    transform-origin: top;
+    animation: cue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  }
+
+  @keyframes cue {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    45% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    55% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
   }
 }

@@ -93,7 +93,7 @@ export default async function ServicePage({
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
+      <section className="py-14 sm:py-20">
         <Container className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">
           <Reveal>
             <div className="lg:sticky lg:top-28">
@@ -143,7 +143,7 @@ export default async function ServicePage({
       </section>
 
       {service.framework && (
-        <section className="bg-white pb-16 sm:pb-24">
+        <section className="bg-white pb-14 sm:pb-20">
           <Container>
             <Reveal>
               <div className="max-w-2xl">
