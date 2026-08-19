@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { values } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
 const chain = [
@@ -63,20 +62,18 @@ export default function WhyOperon() {
         </Reveal>
 
         <Reveal delay={180}>
-          <div className="mt-16 border-t border-white/15 pt-10">
+          <div className="mt-14 border-t border-white/15 pt-10">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
               The FIRST values guide every team we field
             </p>
-            <div className="mt-6 flex flex-wrap gap-x-10 gap-y-5">
-              {values.map((v) => (
-                <div key={v.letter} className="flex items-baseline gap-3">
-                  <span className="text-3xl font-black tracking-tight text-green">
-                    {v.letter}
-                  </span>
-                  <span className="text-sm font-bold text-white/85">{v.title}</span>
-                </div>
-              ))}
-            </div>
+            <Image
+              src="/images/first-lockup-white.png"
+              alt="FIRST values — Future Focused, Imagine New Ways, Respect for All, Solutioning Mindset, True to Our Word"
+              width={1400}
+              height={454}
+              sizes="(min-width: 640px) 560px, 100vw"
+              className="mt-8 h-auto w-full max-w-xl"
+            />
           </div>
         </Reveal>
       </Container>

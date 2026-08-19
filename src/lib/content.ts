@@ -183,12 +183,13 @@ export const credentials = [
   { name: "ASHRAE", detail: "" },
 ];
 
+// Descriptors verbatim from the FIRST values lock-up artwork.
 export const values = [
-  { letter: "F", title: "Future Focused" },
-  { letter: "I", title: "Imagine New Ways" },
-  { letter: "R", title: "Respect for All" },
-  { letter: "S", title: "Solutioning Mindset" },
-  { letter: "T", title: "True to Our Word" },
+  { letter: "F", title: "Future Focused", body: "We prepare for tomorrow's challenges, today." },
+  { letter: "I", title: "Imagine New Ways", body: "We imagine new ways to deliver better work." },
+  { letter: "R", title: "Respect for All", body: "We treat our colleagues & stakeholders with respect." },
+  { letter: "S", title: "Solutioning Mindset", body: "We solve challenges to deliver results." },
+  { letter: "T", title: "True to Our Word", body: "We are guided by integrity to build trust." },
 ];
 
 export const portfolio = [

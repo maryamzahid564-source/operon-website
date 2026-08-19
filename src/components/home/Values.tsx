@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { values } from "@/lib/content";
 
 export default function Values() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-white py-14 sm:py-20">
       <Container>
         <Reveal>
           <div className="max-w-2xl">
@@ -17,15 +18,23 @@ export default function Values() {
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-5">
+        <Reveal delay={100}>
+          {/* Official FIRST lock-up, used as supplied — not re-typeset. */}
+          <Image
+            src="/images/first-lockup.png"
+            alt="FIRST values — Future Focused, Imagine New Ways, Respect for All, Solutioning Mindset, True to Our Word"
+            width={1400}
+            height={454}
+            sizes="(min-width: 1024px) 760px, 100vw"
+            className="mt-12 h-auto w-full max-w-3xl"
+          />
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-8 border-t border-black/10 pt-10 sm:grid-cols-2 lg:grid-cols-5">
           {values.map((v, i) => (
             <Reveal key={v.letter} delay={i * 70}>
-              <div className="border-t-2 border-green pt-5">
-                <span className="text-3xl font-black text-green tracking-tight">{v.letter}</span>
-                <p className="mt-3 text-sm font-bold leading-snug text-black">
-                  {v.title}
-                </p>
-              </div>
+              <p className="text-sm font-bold leading-snug text-black">{v.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-grey">{v.body}</p>
             </Reveal>
           ))}
         </div>
