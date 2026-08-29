@@ -86,6 +86,18 @@ export default function Footer() {
         </div>
       </Container>
 
+      <div className="border-t border-white/10">
+        <Container className="flex flex-wrap items-center gap-x-10 gap-y-3 py-6">
+          <span className="text-xs font-bold uppercase tracking-widest text-white/45">
+            Certifications &amp; memberships
+          </span>
+          <span className="text-sm text-white/60">MEFMA</span>
+          <span className="text-sm text-white/60">BICSc</span>
+          <span className="text-sm text-white/60">ISO 9001 &middot; 14001 &middot; 45001 &mdash; Bureau Veritas</span>
+          <span className="text-sm text-white/60">ASHRAE</span>
+        </Container>
+      </div>
+
       <div className="border-t border-white/10 py-6">
         <Container className="flex flex-col items-center justify-between gap-3 text-xs text-white/55 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Operon Middle East. All rights reserved.</p>

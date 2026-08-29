@@ -183,6 +183,49 @@ export const credentials = [
   { name: "ASHRAE", detail: "" },
 ];
 
+// "Facilities in focus" — sector framework verbatim from the corporate deck.
+export const sectors = [
+  {
+    name: "Residential",
+    detail: "Communities and mixed-use developments",
+    slot: "case-studies/berkeley-place-sobha-hartland",
+  },
+  {
+    name: "Commercial",
+    detail: "Offices, retail and corporate assets",
+    slot: "case-studies/al-thuraya-tower",
+  },
+  {
+    name: "Hospitality & Leisure",
+    detail: "Golf clubs and lifestyle destinations",
+    slot: "portfolio/p5",
+  },
+  {
+    name: "Specialised Facilities",
+    detail: "High-profile and operationally complex environments",
+    slot: "portfolio/p6",
+  },
+];
+
+// UEM Edgenta Group figures as at 31 December 2024 — verbatim from the deck.
+export const groupStats = [
+  { value: "17,000+", label: "Employees worldwide" },
+  { value: "USD 683M", label: "Total assets" },
+  { value: "USD 660M", label: "Group revenue" },
+  { value: "80+", label: "Years of group experience" },
+];
+export const groupStatsNote = "UEM Edgenta Group figures as at 31 December 2024.";
+
+// Group sustainability achievements — verbatim from the deck.
+export const sustainabilityStats = [
+  { value: "203M+ kWh", label: "Total electrical savings" },
+  { value: "37,200+ tCO₂", label: "Carbon emissions reduced" },
+  { value: "20+", label: "GBI & LEED-certified buildings" },
+  { value: "Up to 48%", label: "Reduction in electricity consumption" },
+];
+export const sustainabilityNote =
+  "UEM Edgenta Group sustainability achievements. USD value converted from MYR as at July 2026.";
+
 // Descriptors verbatim from the FIRST values lock-up artwork.
 export const values = [
   { letter: "F", title: "Future Focused", body: "We prepare for tomorrow's challenges, today." },

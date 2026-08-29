@@ -12,7 +12,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative -mt-20 flex min-h-[100svh] flex-col overflow-hidden bg-black lg:-mt-24">
+      <section className="relative -mt-20 flex min-h-[100svh] flex-col overflow-hidden bg-black lg:-mt-[8.25rem]">
         <div className="kenburns absolute inset-0">
           {heroVideo ? (
             <video

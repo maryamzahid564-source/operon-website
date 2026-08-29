@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
+import { groupStats, groupStatsNote } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
 const chain = [
@@ -61,8 +62,28 @@ export default function WhyOperon() {
           </div>
         </Reveal>
 
+        <Reveal delay={150}>
+          <div className="mt-12 border-t border-white/15 pt-10">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+              {groupStats.map((s) => (
+                <div key={s.label}>
+                  <p className="text-2xl font-black tracking-tight text-green sm:text-3xl">
+                    {s.value}
+                  </p>
+                  <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-7 text-xs leading-relaxed text-white/45">
+              {groupStatsNote}
+            </p>
+          </div>
+        </Reveal>
+
         <Reveal delay={180}>
-          <div className="mt-14 border-t border-white/15 pt-10">
+          <div className="mt-12 border-t border-white/15 pt-10">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
               The FIRST values guide every team we field
             </p>

@@ -32,6 +32,22 @@ export default function Header() {
       data-overlay={overlay}
       className="group fixed inset-x-0 top-0 z-50 transition-colors duration-300 data-[overlay=false]:border-b data-[overlay=false]:border-black/10 data-[overlay=false]:bg-white/95 data-[overlay=false]:backdrop-blur data-[overlay=true]:bg-transparent"
     >
+      {/* Corporate utility bar — collapses away on scroll. */}
+      <div className="hidden overflow-hidden bg-black text-white/70 transition-[max-height] duration-300 group-data-[scrolled=true]:max-h-0 lg:block lg:max-h-9">
+        <Container className="flex h-9 items-center justify-between text-[11px] tracking-[0.08em]">
+          <span className="font-bold uppercase tracking-[0.18em] text-white/60">
+            An Edgenta Company
+          </span>
+          <span className="flex items-center gap-7">
+            <a href="tel:+9718004145" className="transition-colors hover:text-white">
+              +971 800 4145
+            </a>
+            <a href="mailto:info@operon.co" className="transition-colors hover:text-white">
+              info@operon.co
+            </a>
+          </span>
+        </Container>
+      </div>
       <Container className="flex h-20 items-center justify-between lg:h-24">
         <Link href="/" onClick={() => setOpen(false)} aria-label="Operon — home">
           {/* The complete original lock-up in its compact format — colour on
