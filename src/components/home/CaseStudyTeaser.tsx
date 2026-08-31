@@ -50,7 +50,7 @@ export default function CaseStudyTeaser() {
                   <div className="absolute inset-0 bg-mist" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-                <span className="absolute left-6 top-6 text-sm font-black tracking-tight text-white/70 sm:left-8 sm:top-8">
+                <span className="absolute left-6 top-6 text-sm font-bold tracking-tight text-white/70 sm:left-8 sm:top-8">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out group-hover:-translate-y-1.5 sm:p-8">

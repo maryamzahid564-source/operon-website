@@ -51,7 +51,7 @@ export default function Sustainability() {
             <div className="grid grid-cols-2 gap-x-6 gap-y-9 border-t-2 border-green pt-8">
               {sustainabilityStats.map((s) => (
                 <div key={s.label}>
-                  <p className="text-2xl font-black tracking-tight text-green sm:text-3xl">
+                  <p className="text-2xl font-bold tracking-tight text-green sm:text-3xl">
                     {s.value}
                   </p>
                   <p className="mt-2 text-sm leading-snug text-grey">{s.label}</p>

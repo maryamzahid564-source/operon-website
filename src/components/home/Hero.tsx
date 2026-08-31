@@ -50,7 +50,7 @@ export default function Hero() {
               </p>
             </div>
             <h1
-              className="hero-el mt-6 max-w-5xl text-[2.75rem] font-black leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
+              className="hero-el mt-6 max-w-5xl text-[2.75rem] font-bold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
               style={{ animationDelay: "0.3s" }}
             >
               Measured by what
@@ -105,7 +105,7 @@ export default function Hero() {
               <div key={s.label}>
                 <CountUp
                   value={s.value}
-                  className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl"
+                  className="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl"
                 />
                 <p className="mt-1.5 text-xs leading-snug text-white/65 sm:text-sm">
                   {s.label}

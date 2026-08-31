@@ -67,7 +67,7 @@ export default function WhyOperon() {
             <div className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
               {groupStats.map((s) => (
                 <div key={s.label}>
-                  <p className="text-2xl font-black tracking-tight text-green sm:text-3xl">
+                  <p className="text-2xl font-bold tracking-tight text-green sm:text-3xl">
                     {s.value}
                   </p>
                   <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">

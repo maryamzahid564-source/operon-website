@@ -55,7 +55,7 @@ export default async function CaseStudyPage({
             <p className="mt-6 text-xs font-bold uppercase tracking-[0.3em] text-green">
               {study.sector} &middot; {study.location}
             </p>
-            <h1 className="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
               {study.title}
             </h1>
           </Reveal>

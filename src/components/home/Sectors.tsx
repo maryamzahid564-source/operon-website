@@ -53,7 +53,7 @@ export default function Sectors() {
                 </Parallax>
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-              <span className="absolute left-6 top-6 text-sm font-black tracking-tight text-white/60 sm:left-7 sm:top-7">
+              <span className="absolute left-6 top-6 text-sm font-bold tracking-tight text-white/60 sm:left-7 sm:top-7">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out group-hover:-translate-y-1.5 sm:p-7">

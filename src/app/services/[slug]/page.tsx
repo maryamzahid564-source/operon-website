@@ -70,7 +70,7 @@ export default async function ServicePage({
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               Services
             </p>
-            <h1 className="mt-5 text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
               {service.name}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">
@@ -198,7 +198,7 @@ export default async function ServicePage({
             <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/10 pt-10 sm:grid-cols-3">
               {service.groupImpact.stats.map((s, i) => (
                 <Reveal key={s.label} delay={i * 60}>
-                  <p className="text-2xl font-black text-green sm:text-3xl tracking-tight">{s.value}</p>
+                  <p className="text-2xl font-bold text-green sm:text-3xl tracking-tight">{s.value}</p>
                   <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">
                     {s.label}
                   </p>

@@ -18,7 +18,7 @@ export default function ContactPage() {
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
             Contact
           </p>
-          <h1 className="mt-5 max-w-2xl text-4xl font-black leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
             Let&rsquo;s talk about your portfolio.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">
