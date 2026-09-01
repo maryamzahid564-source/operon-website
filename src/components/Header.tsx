@@ -9,6 +9,7 @@ import { services } from "@/lib/content";
 
 const navLink =
   "relative text-xs font-bold uppercase tracking-[0.18em] text-black/70 transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-green after:transition-transform after:duration-300 hover:text-black hover:after:scale-x-100 group-data-[overlay=true]:text-white/85 group-data-[overlay=true]:hover:text-white";
+const navLinkActive = " text-black after:scale-x-100 group-data-[overlay=true]:text-white";
 
 export default function Header() {
   const pathname = usePathname();
@@ -83,7 +84,7 @@ export default function Header() {
               aria-expanded={servicesOpen}
               aria-haspopup="true"
               onClick={() => setServicesOpen(!servicesOpen)}
-              className={`flex items-center gap-1.5 ${navLink}`}
+              className={`flex items-center gap-1.5 ${navLink}${pathname.startsWith("/services") ? navLinkActive : ""}`}
             >
               Services
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
@@ -107,13 +108,25 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/case-studies" className={navLink}>
+          <Link
+            href="/case-studies"
+            aria-current={pathname.startsWith("/case-studies") ? "page" : undefined}
+            className={`${navLink}${pathname.startsWith("/case-studies") ? navLinkActive : ""}`}
+          >
             Projects
           </Link>
-          <Link href="/about" className={navLink}>
+          <Link
+            href="/about"
+            aria-current={pathname.startsWith("/about") ? "page" : undefined}
+            className={`${navLink}${pathname.startsWith("/about") ? navLinkActive : ""}`}
+          >
             Who We Are
           </Link>
-          <Link href="/contact" className={navLink}>
+          <Link
+            href="/contact"
+            aria-current={pathname.startsWith("/contact") ? "page" : undefined}
+            className={`${navLink}${pathname.startsWith("/contact") ? navLinkActive : ""}`}
+          >
             Contact
           </Link>
           <Link

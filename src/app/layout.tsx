@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { gotham } from "@/lib/fonts";
@@ -82,7 +83,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         <Header />
-        <main className="flex-1 pt-20 lg:pt-[8.25rem]">{children}</main>
+        <main className="flex-1 pt-20 lg:pt-[8.25rem]">
+          <ViewTransition>{children}</ViewTransition>
+        </main>
         <Footer />
       </body>
     </html>

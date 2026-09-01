@@ -12,8 +12,8 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative -mt-20 flex min-h-[100svh] flex-col overflow-hidden bg-black lg:-mt-[8.25rem]">
-        <div className="kenburns absolute inset-0">
+      <section className="hero-timeline relative -mt-20 flex min-h-[100svh] flex-col overflow-hidden bg-black lg:-mt-[8.25rem]">
+        <div className="kenburns hero-bg-exit absolute inset-0">
           {heroVideo ? (
             <video
               className="absolute inset-0 h-full w-full object-cover"
@@ -41,7 +41,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/25" />
         <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/65 to-transparent" />
 
-        <div className="relative flex flex-1 flex-col justify-center">
+        <div className="hero-exit relative flex flex-1 flex-col justify-center">
           <Container className="pb-14 pt-40 sm:pb-16">
             <div className="hero-el" style={{ animationDelay: "0.15s" }}>
               <span className="mb-5 block h-0.5 w-12 bg-green" />

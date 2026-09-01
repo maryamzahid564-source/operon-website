@@ -60,16 +60,66 @@ body {
     }
   }
 
-  /* Scroll-triggered reveals. */
+  /* Scroll-triggered reveals — travel, fade and a focus pull. */
   [data-reveal] {
     opacity: 0;
     transform: translateY(26px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: blur(6px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   [data-reveal="in"] {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Scroll-driven hero exit — content drifts up and fades as the hero
+     leaves the viewport (browsers with scroll-driven animations only).
+     The hero section is overflow-hidden and would act as its own scroll
+     container for view(), so it publishes a named timeline that tracks
+     its position in the root scroller instead. */
+  @supports (animation-timeline: view()) {
+    .hero-timeline {
+      view-timeline: --hero block;
+    }
+
+    .hero-exit {
+      animation: heroContentExit linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 70%;
+    }
+
+    @keyframes heroContentExit {
+      to {
+        opacity: 0;
+        transform: translateY(-56px);
+      }
+    }
+
+    .hero-bg-exit {
+      animation: heroBgExit linear both;
+      animation-timeline: --hero;
+      animation-range: exit 0% exit 100%;
+    }
+
+    @keyframes heroBgExit {
+      to {
+        transform: scale(1.07);
+      }
+    }
+  }
+
+  /* Cross-fade between pages via the View Transitions API. */
+  ::view-transition-old(root) {
+    animation-duration: 0.22s;
+  }
+
+  ::view-transition-new(root) {
+    animation-duration: 0.32s;
   }
 
   /* Continuous client marquee. */

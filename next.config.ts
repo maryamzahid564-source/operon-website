@@ -16,11 +16,13 @@ const nextConfig: NextConfig = isStaticExport
       output: "export",
       trailingSlash: true,
       images: { unoptimized: true },
+      experimental: { viewTransition: true },
     }
   : {
       async headers() {
         return [{ source: "/(.*)", headers: securityHeaders }];
       },
+      experimental: { viewTransition: true },
     };
 
 export default nextConfig;
