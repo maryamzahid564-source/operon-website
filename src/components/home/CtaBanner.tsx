@@ -26,7 +26,7 @@ export default function CtaBanner() {
             href="/contact"
             className="inline-flex items-center justify-center bg-black px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-black"
           >
-            Request a Proposal
+            Talk to Us
           </Link>
         </Reveal>
       </Container>

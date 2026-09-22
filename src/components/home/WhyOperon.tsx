@@ -4,11 +4,12 @@ import Reveal from "@/components/ui/Reveal";
 import { groupStats, groupStatsNote } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
-const chain = [
-  { name: "Khazanah Nasional Berhad", detail: "Malaysia's sovereign wealth fund" },
-  { name: "UEM Group Berhad", detail: "Infrastructure group" },
+// The backing behind Operon, told as a layered "backed by" journey rather
+// than an organisation chart — Operon leads, each layer recedes.
+const backing = [
   { name: "UEM Edgenta Berhad", detail: "Asset management & infrastructure solutions" },
-  { name: "Operon Middle East", detail: "UAE facilities management" },
+  { name: "UEM Group Berhad", detail: "Infrastructure group" },
+  { name: "Khazanah Nasional Berhad", detail: "Malaysia's sovereign wealth fund" },
 ];
 
 export default function WhyOperon() {
@@ -39,28 +40,59 @@ export default function WhyOperon() {
               <br />
               Institutional strength.
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-white/70">
-              Operon Middle East combines local facilities management
-              expertise with the governance, engineering capability and
-              international standards of UEM Edgenta, UEM Group and Khazanah
-              Nasional Berhad.
-            </p>
           </div>
         </Reveal>
 
-        <Reveal delay={120}>
-          <div className="mt-14 flex flex-col divide-y divide-white/15 border-t border-white/15 sm:flex-row sm:divide-x sm:divide-y-0 sm:border-t-0">
-            {chain.map((c, i) => (
-              <div key={c.name} className="flex-1 py-6 pr-6 sm:py-2 sm:pl-8 sm:first:pl-0">
-                <span className="text-xs font-bold text-green">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-3 text-base font-bold leading-snug">{c.name}</p>
-                <p className="mt-1.5 text-sm text-white/60">{c.detail}</p>
+        {/* Operon out front; its backing recedes behind it, layer by layer. */}
+        <div className="mt-12 flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-0">
+          <Reveal className="lg:w-[34%]">
+            <div className="flex h-full flex-col justify-between border-l-2 border-green bg-white/[0.07] p-7 backdrop-blur-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                UAE facilities management
+              </p>
+              <div className="mt-10">
+                <p className="text-2xl font-bold leading-tight sm:text-3xl">
+                  Operon
+                  <br />
+                  Middle East
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-white/70">
+                  On the ground across the UAE &mdash; one team, one standard,
+                  since 2008.
+                </p>
               </div>
+            </div>
+          </Reveal>
+
+          <div className="flex items-center justify-center py-1 lg:w-[6%] lg:py-0">
+            <div className="flex items-center gap-2 text-white/50 lg:rotate-0">
+              <span className="hidden h-px w-6 bg-white/30 lg:block" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.3em]">
+                Backed by
+              </span>
+              <span className="h-px w-6 bg-white/30 lg:hidden" />
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col gap-4 sm:flex-row sm:gap-0">
+            {backing.map((b, i) => (
+              <Reveal key={b.name} delay={140 + i * 120} className="flex-1">
+                <div
+                  className="flex h-full flex-col justify-between border-l border-white/20 p-6 sm:p-5 lg:p-6"
+                  style={{ opacity: 1 - i * 0.14 }}
+                >
+                  <span className="text-xs font-bold text-green/90">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="mt-8">
+                    <p className="text-base font-bold leading-snug">{b.name}</p>
+                    <p className="mt-2 text-sm leading-snug text-white/60">{b.detail}</p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </Reveal>
+        </div>
 
         <Reveal delay={150}>
           <div className="mt-12 border-t border-white/15 pt-10">

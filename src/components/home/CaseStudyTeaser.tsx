@@ -3,9 +3,11 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import Scroller from "@/components/ui/Scroller";
-import { caseStudies } from "@/lib/content";
+import { environments } from "@/lib/content";
 import { photoFor } from "@/lib/images";
 
+// "Where our work comes to life" — the six environments Operon manages.
+// No client or project names appear anywhere in this section.
 export default function CaseStudyTeaser() {
   return (
     <section className="overflow-hidden bg-white py-14 sm:py-20">
@@ -18,30 +20,36 @@ export default function CaseStudyTeaser() {
                 Our work
               </p>
               <h2 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-black sm:text-3xl">
-                The assets that tell our story.
+                Where our work comes to life.
               </h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-grey">
+                From master communities and residential developments to
+                commercial spaces, retail and lifestyle destinations, our
+                teams work behind the scenes to keep places performing
+                every day.
+              </p>
             </div>
             <p className="text-sm font-bold text-grey">
-              01 &mdash; {String(caseStudies.length).padStart(2, "0")}
+              01 &mdash; {String(environments.length).padStart(2, "0")}
             </p>
           </div>
         </Reveal>
       </Container>
 
       <div className="mt-10">
-        <Scroller ariaLabel="Project showcase">
-          {caseStudies.map((c, i) => {
-            const src = photoFor(`case-studies/${c.slug}`);
+        <Scroller ariaLabel="Environments we manage">
+          {environments.map((e, i) => {
+            const src = photoFor(`environments/${e.slug}`);
             return (
               <Link
-                key={c.slug}
-                href={`/case-studies/${c.slug}`}
+                key={e.slug}
+                href={`/our-work#${e.slug}`}
                 className="group relative block aspect-[16/11] w-[82vw] shrink-0 snap-start overflow-hidden bg-black sm:aspect-[16/10] sm:w-[480px] lg:w-[600px]"
               >
                 {src ? (
                   <Image
                     src={src}
-                    alt={c.title}
+                    alt={e.name}
                     fill
                     sizes="(min-width: 1024px) 600px, (min-width: 640px) 480px, 82vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -54,14 +62,14 @@ export default function CaseStudyTeaser() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out group-hover:-translate-y-1.5 sm:p-8">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-green">
-                    {c.sector} &middot; {c.location}
-                  </p>
-                  <h3 className="mt-2 text-xl font-bold leading-snug text-white sm:text-2xl">
-                    {c.title}
+                  <h3 className="text-xl font-bold leading-snug text-white sm:text-2xl">
+                    {e.name}
                   </h3>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-white/75">
+                    {e.summary}
+                  </p>
                   <span className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/0 transition-all duration-500 group-hover:text-white">
-                    View project
+                    Explore
                     <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                       <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
@@ -71,15 +79,15 @@ export default function CaseStudyTeaser() {
             );
           })}
           <Link
-            href="/case-studies"
+            href="/our-work"
             className="group flex aspect-[16/11] w-[82vw] shrink-0 snap-start flex-col justify-between bg-green p-8 text-white sm:aspect-[16/10] sm:w-[480px] lg:w-[600px]"
           >
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/80">
-              Full portfolio
+              Our work
             </p>
             <div>
               <p className="text-2xl font-bold leading-snug sm:text-3xl">
-                See every asset
+                See every environment
                 <br />
                 we manage.
               </p>

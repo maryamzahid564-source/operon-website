@@ -24,7 +24,7 @@ export default function NotFound() {
           </Button>
         </div>
         <Link
-          href="/case-studies"
+          href="/our-work"
           className="mt-2 text-sm font-medium text-grey transition-colors hover:text-green"
         >
           Or browse our projects &rarr;

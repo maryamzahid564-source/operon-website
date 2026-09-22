@@ -23,11 +23,11 @@ export async function generateMetadata({
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.name} Services in Dubai & the UAE`,
-    description: `${service.name} from Operon Middle East — ${service.summary} Serving Dubai and the UAE since 2008.`,
-    alternates: { canonical: `/services/${service.slug}` },
+    title: `${service.name} in Dubai & the UAE`,
+    description: `${service.name} from Operon Middle East — ${service.summary}`,
+    alternates: { canonical: `/what-we-do/${service.slug}` },
     openGraph: {
-      title: `${service.name} Services in Dubai & the UAE | Operon Middle East`,
+      title: `${service.name} | Operon Middle East`,
       description: service.summary,
     },
   };
@@ -49,7 +49,7 @@ export default async function ServicePage({
     "@type": "Service",
     name: service.name,
     description: service.summary,
-    url: `${SITE_URL}/services/${service.slug}`,
+    url: `${SITE_URL}/what-we-do/${service.slug}`,
     areaServed: "AE",
     provider: {
       "@type": "Organization",
@@ -68,16 +68,16 @@ export default async function ServicePage({
         <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              Services
+              What we do
             </p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
               {service.name}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">
-              {service.tagline}
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-black sm:text-xl">
+              {service.headline}
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-grey">
-              {service.summary}
+              {service.paragraphs[0]}
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -100,12 +100,14 @@ export default async function ServicePage({
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
                 Overview
               </p>
-              <p className="mt-5 text-base leading-relaxed text-grey">
-                {service.description}
-              </p>
+              {service.paragraphs.slice(1).map((p) => (
+                <p key={p.slice(0, 24)} className="mt-5 text-base leading-relaxed text-grey">
+                  {p}
+                </p>
+              ))}
               <div className="mt-8">
                 <Button href="/contact" variant="primary">
-                  Request a Proposal
+                  Talk to Us
                 </Button>
               </div>
             </div>
@@ -113,7 +115,7 @@ export default async function ServicePage({
 
           <Reveal delay={100}>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              What&rsquo;s included
+              Our capabilities include
             </p>
             <ul className="mt-6 divide-y divide-black/10 border-t border-black/10">
               {service.capabilities.map((c) => (
@@ -142,76 +144,6 @@ export default async function ServicePage({
         </Container>
       </section>
 
-      {service.framework && (
-        <section className="bg-white pb-14 sm:pb-20">
-          <Container>
-            <Reveal>
-              <div className="max-w-2xl">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-                  How it works
-                </p>
-                <h2 className="mt-4 text-2xl font-bold text-black sm:text-3xl tracking-tight">
-                  {service.framework.heading}
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-grey">
-                  {service.framework.intro}
-                </p>
-              </div>
-            </Reveal>
-            <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-              {service.framework.steps.map((step, i) => (
-                <Reveal key={step.title} delay={i * 70} className="h-full">
-                  <div className="flex h-full flex-col bg-mist p-6">
-                    <span className="text-sm font-bold text-green">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-3 text-lg font-bold leading-snug text-black">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-grey">
-                      {step.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </Container>
-        </section>
-      )}
-
-      {service.groupImpact && (
-        <section className="bg-black py-16 text-white sm:py-24">
-          <Container>
-            <Reveal>
-              <div className="max-w-2xl">
-                <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-                  Group impact
-                </p>
-                <h2 className="mt-4 text-2xl font-bold sm:text-3xl tracking-tight">
-                  {service.groupImpact.heading}
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-white/60">
-                  {service.groupImpact.intro}
-                </p>
-              </div>
-            </Reveal>
-            <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/10 pt-10 sm:grid-cols-3">
-              {service.groupImpact.stats.map((s, i) => (
-                <Reveal key={s.label} delay={i * 60}>
-                  <p className="text-2xl font-bold text-green sm:text-3xl tracking-tight">{s.value}</p>
-                  <p className="mt-2 text-xs leading-snug text-white/60 sm:text-sm">
-                    {s.label}
-                  </p>
-                </Reveal>
-              ))}
-            </div>
-            <p className="mt-10 text-xs leading-relaxed text-white/55">
-              {service.groupImpact.note}
-            </p>
-          </Container>
-        </section>
-      )}
-
       <section className="bg-mist py-14 sm:py-20">
         <Container>
           <Reveal>
@@ -226,7 +158,7 @@ export default async function ServicePage({
             {otherServices.map((s, i) => (
               <Reveal key={s.slug} delay={i * 60} className="h-full">
                 <Link
-                  href={`/services/${s.slug}`}
+                  href={`/what-we-do/${s.slug}`}
                   className="group flex h-full flex-col justify-between border border-black/10 bg-white p-6 transition-colors hover:border-black hover:bg-black"
                 >
                   <span className="text-base font-bold text-black transition-colors group-hover:text-white">

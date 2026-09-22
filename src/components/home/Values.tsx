@@ -5,7 +5,7 @@ import { values } from "@/lib/content";
 
 export default function Values() {
   return (
-    <section className="bg-white py-14 sm:py-20">
+    <section id="values" className="scroll-mt-28 bg-white py-14 sm:py-20">
       <Container>
         <Reveal>
           <div className="max-w-2xl">
@@ -13,7 +13,7 @@ export default function Values() {
               Our values
             </p>
             <h2 className="mt-5 text-2xl font-bold leading-tight text-black sm:text-3xl tracking-tight">
-              Guided by UEM Edgenta&rsquo;s FIRST values.
+              FIRST in everything we do.
             </h2>
           </div>
         </Reveal>
@@ -25,8 +25,8 @@ export default function Values() {
             alt="FIRST values — Future Focused, Imagine New Ways, Respect for All, Solutioning Mindset, True to Our Word"
             width={1400}
             height={454}
-            sizes="(min-width: 1024px) 760px, 100vw"
-            className="mt-12 h-auto w-full max-w-3xl"
+            sizes="(min-width: 1024px) 900px, 100vw"
+            className="mt-12 h-auto w-full max-w-4xl"
           />
         </Reveal>
 

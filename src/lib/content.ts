@@ -1,179 +1,308 @@
+// All content sourced from the client's Revised OME Website document
+// (September 2026), lightly edited for layout. No invented claims.
+
 export type Service = {
   slug: string;
   name: string;
-  tagline: string;
+  headline: string;
   summary: string;
-  description: string;
+  paragraphs: string[];
   capabilities: string[];
-  framework?: {
-    heading: string;
-    intro: string;
-    steps: { title: string; body: string }[];
-  };
-  groupImpact?: {
-    heading: string;
-    intro: string;
-    note: string;
-    stats: { value: string; label: string }[];
-  };
 };
 
 export const services: Service[] = [
   {
-    slug: "hard-fm",
-    name: "Hard FM",
-    tagline: "Keeping the built environment running.",
+    slug: "integrated-facilities-management",
+    name: "Integrated Facilities Management",
+    headline: "One team. One standard. One point of accountability.",
     summary:
-      "MEP, BMS and civil maintenance that keeps critical building systems safe, compliant and running.",
-    description:
-      "Our Hard FM teams maintain the technical systems that keep a building operating — from HVAC and electrical to fire safety and BMS. Planned preventive maintenance is backed by a responsive on-site team, so faults are caught early and downtime stays low.",
+      "End-to-end facilities management, bringing people, processes and services together under one accountable team.",
+    paragraphs: [
+      "Integrated facilities management is about more than bringing services under one contract. It is about making them work together.",
+      "Operon brings technical services, soft services, people, processes and technology into one coordinated operation — giving our clients clearer oversight, consistent standards and greater control across their facilities.",
+      "From day-to-day service delivery to performance monitoring and reporting, our teams manage the details behind the scenes so our clients can focus on what matters to their business.",
+    ],
     capabilities: [
-      "HVAC repair & maintenance",
-      "Electrical repair & maintenance",
-      "Plumbing & mechanical pumps maintenance",
-      "Fire alarm & fire fighting system maintenance",
-      "Generator maintenance",
-      "Elevator & escalator maintenance",
-      "Gate barrier, access control & roller shutter maintenance",
-      "CCTV & BMS maintenance",
-      "Central gas system maintenance",
-      "Civil, carpentry & masonry repair",
+      "Hard and technical services",
+      "Soft services",
+      "Planned and reactive maintenance",
+      "CAFM and work order management",
+      "Asset and performance monitoring",
+      "Helpdesk and service coordination",
+      "HSE and compliance",
+      "Performance reporting",
     ],
   },
   {
-    slug: "soft-fm",
-    name: "Soft FM",
-    tagline: "Every day, a well-kept building.",
+    slug: "engineering-technical-services",
+    name: "Engineering & Technical Services",
+    headline: "Engineering that keeps everything moving.",
     summary:
-      "Cleaning, security, landscaping and pest control delivered by teams who show up, every day.",
-    description:
-      "Soft FM is where a facilities partner is judged daily. Our teams handle cleaning, security, landscaping and pest control to a consistent standard, so the buildings we manage look and feel cared for at all times.",
+      "HVAC, electrical, mechanical, plumbing, BMS, fire systems and specialist maintenance that keep assets performing reliably.",
+    paragraphs: [
+      "Behind every well-performing building is a technical operation that works quietly, reliably and consistently.",
+      "Operon provides engineering and technical services across critical building systems, combining planned maintenance, responsive support and technical expertise to protect asset performance and minimise disruption.",
+      "Our teams focus not only on fixing issues when they happen, but on maintaining systems properly and identifying problems before they affect operations.",
+    ],
     capabilities: [
-      "General cleaning maintenance",
-      "External facade & glass cleaning",
+      "HVAC",
+      "Electrical systems",
+      "Plumbing",
+      "Mechanical pumps",
+      "Fire alarm and firefighting systems",
+      "Generators",
+      "Elevators and escalators",
+      "BMS",
+      "Access control and gate barriers",
+      "CCTV",
+      "Gas systems",
+      "Civil, carpentry and masonry works",
+    ],
+  },
+  {
+    slug: "soft-services",
+    name: "Soft Services",
+    headline: "The details people notice. The standards they remember.",
+    summary:
+      "Cleaning, housekeeping, landscaping, waste management, pest control and other essential services that keep environments safe and well presented.",
+    paragraphs: [
+      "A well-managed environment should not only work well. It should feel well cared for.",
+      "Operon delivers soft services that help keep facilities clean, safe, comfortable and presentable every day. Our teams work across different environments and operating requirements, with service standards built around the people who use each space.",
+      "From everyday cleaning to specialist services, we focus on consistency, attention to detail and dependable delivery.",
+    ],
+    capabilities: [
+      "Cleaning and housekeeping",
+      "Façade and glass cleaning",
       "Waste management",
-      "Pest control services",
-      "Swimming pool cleaning & maintenance",
+      "Pest control",
+      "Landscaping",
+      "Swimming pool services",
       "Water tank cleaning",
-      "Landscaping maintenance",
       "Security services",
     ],
   },
   {
-    slug: "energy-management",
-    name: "Energy Management",
-    tagline: "Efficiency built into daily operations.",
+    slug: "smart-fm-technology",
+    name: "Smart FM & Technology",
+    headline: "Better visibility. Better decisions. Better performance.",
     summary:
-      "Energy monitoring, retrofit programmes and building certifications that reduce consumption over time.",
-    description:
-      "We help asset owners understand and reduce energy consumption — through monitoring, retrofit programmes and support toward green building certification. Sustainability is treated as an operating discipline, not a one-off project.",
+      "CAFM, real-time monitoring, connected systems and data-led insights that enable more proactive and efficient operations.",
+    paragraphs: [
+      "Technology works best when it makes operations simpler, faster and more informed.",
+      "Operon uses CAFM, connected systems, real-time monitoring and operational data to give our teams and clients better visibility across facilities and assets.",
+      "By bringing information together, we can track work orders, monitor performance, identify trends and move from reactive maintenance towards more proactive, data-led operations.",
+    ],
+    capabilities: [
+      "CAFM",
+      "Work order management",
+      "Asset management",
+      "Real-time monitoring",
+      "Inspections and maintenance tracking",
+      "Utility monitoring",
+      "Inventory management",
+      "IoT-enabled solutions",
+      "Operational dashboards and reporting",
+      "Predictive insights",
+    ],
+  },
+  {
+    slug: "sustainability-energy-management",
+    name: "Sustainability & Energy Management",
+    headline: "Better performance with less impact.",
+    summary:
+      "Practical solutions focused on energy and water efficiency, waste reduction and stronger long-term asset performance.",
+    paragraphs: [
+      "For us, sustainability starts with how facilities are operated every day.",
+      "Operon helps clients identify practical opportunities to improve energy and water efficiency, reduce waste and use resources more effectively — while maintaining the performance, comfort and reliability their facilities require.",
+      "By combining operational knowledge, technology and performance data, we support smarter decisions that can deliver both environmental and operational value over the life of an asset.",
+    ],
     capabilities: [
       "Energy monitoring",
-      "Energy retrofit programmes",
-      "Renewable technologies",
-      "Building audits",
-      "Green building certification support (LEED, SPIRE, WELL)",
-      "Sustainability projects",
-    ],
-    groupImpact: {
-      heading: "Backed by proven group results",
-      intro:
-        "Operon embeds sustainability into everyday facilities management — helping clients improve energy and water efficiency, reduce waste, optimise asset performance and create healthier built environments, backed by UEM Edgenta's sustainability and engineering expertise.",
-      note: "UEM Edgenta Group sustainability achievements. USD value converted from MYR as at July 2026.",
-      stats: [
-        { value: "USD 13.5M", label: "Energy bill savings" },
-        { value: "203M+ kWh", label: "Total electrical savings" },
-        { value: "29%+", label: "Reduction in water consumption" },
-        { value: "20+", label: "GBI & LEED-certified buildings" },
-        { value: "37,200+ tCO₂", label: "Carbon emissions reduced" },
-        { value: "Up to 48%", label: "Reduction in electricity consumption" },
-      ],
-    },
-  },
-  {
-    slug: "technology-solutions",
-    name: "Technology Solutions",
-    tagline: "Real-time visibility across every building.",
-    summary:
-      "A CAFM platform, IoT sensors and a command centre give real-time visibility across 300+ buildings.",
-    description:
-      "Our CAFM platform integrates asset management, maintenance, work orders, inspections, utilities, inventory and sustainability data into a single system — giving our teams and clients real-time visibility across the UAE portfolio, with audit-ready reporting on demand.",
-    capabilities: [
-      "CAFM platform",
-      "Command and Control Centre",
-      "IoT sensors & real-time monitoring",
-      "Cleaning robotics",
-      "Predictive maintenance insights",
-      "Audit-ready reporting",
-    ],
-    framework: {
-      heading: "Tech-enabled FM, step by step",
-      intro:
-        "Operon combines hands-on facilities management expertise with smart building technology to improve how assets are monitored, operated and maintained. Through real-time data, connected systems and AI-driven insights, we support a more proactive approach to FM — helping clients improve reliability, reduce inefficiencies and make better operational decisions.",
-      steps: [
-        {
-          title: "Real-time monitoring",
-          body: "Centralised visibility across building operations and asset conditions.",
-        },
-        {
-          title: "Energy optimisation",
-          body: "Intelligent control of consumption to support efficiency, cost and sustainability goals.",
-        },
-        {
-          title: "Predictive insights",
-          body: "Forward-looking intelligence that helps prevent disruption before it happens.",
-        },
-        {
-          title: "Smarter asset performance",
-          body: "Reliable, data-supported asset management for stronger lifecycle performance.",
-        },
-        {
-          title: "Improved comfort and reliability",
-          body: "Stable, well-managed environments for tenants, visitors and communities.",
-        },
-      ],
-    },
-  },
-  {
-    slug: "golf-course-management",
-    name: "Golf Course Management",
-    tagline: "Dependable facilities support for golf & leisure.",
-    summary:
-      "Full facilities support for golf clubs and leisure destinations — built around guest experience and event readiness.",
-    description:
-      "We provide integrated facilities management for golf clubs and leisure destinations, including Emirates Golf Club and Topgolf Dubai — covering MEP and HVAC, housekeeping, landscaping and specialist equipment, with the front-of-house support and event-day readiness these venues depend on.",
-    capabilities: [
-      "MEP & HVAC maintenance",
-      "Housekeeping & cleaning",
-      "Landscaping maintenance",
-      "Specialist equipment maintenance",
-      "Front-of-house & guest experience support",
-      "Event-day readiness",
+      "Water efficiency",
+      "Waste reduction",
+      "Energy optimisation",
+      "Performance analysis",
+      "Energy retrofit support",
+      "Resource efficiency",
+      "Sustainability data and reporting",
     ],
   },
   {
-    slug: "consultancy",
-    name: "Consultancy",
-    tagline: "Strategy before a contract is signed.",
+    slug: "projects-asset-solutions",
+    name: "Projects & Asset Solutions",
+    headline: "Beyond day-to-day FM.",
     summary:
-      "Advisory on FM strategy, asset audits and fit-out project management for owners and developers.",
-    description:
-      "Our consultancy practice advises owners and developers on FM strategy, building audits and fit-out project management — informed by the operational experience of running facilities management across the UAE ourselves.",
+      "Fit-out works, building audits, FM consultancy, energy retrofit and asset and engineering consultancy.",
+    paragraphs: [
+      "Some assets need more than ongoing facilities management. They need specialist advice, improvement works and a clear understanding of how the asset is performing.",
+      "Operon supports clients with project, consultancy and asset solutions designed to improve buildings, strengthen operations and support better long-term decisions.",
+      "From fit-out and technical audits to energy retrofit and engineering consultancy, our teams bring practical operational experience into every project.",
+    ],
     capabilities: [
-      "FM strategy consultancy",
+      "Fit-out works",
+      "Building and FM audits",
+      "FM consultancy",
       "Managing partner consultancy",
-      "Asset & engineering consultancy",
-      "Building audits",
-      "Fit-out project management",
+      "Energy retrofit",
+      "Renewable technology solutions",
+      "Asset and engineering consultancy",
+      "Building certification support, including LEED, SPIRE and WELL",
     ],
   },
 ];
 
+export type Environment = {
+  slug: string;
+  name: string;
+  headline: string;
+  summary: string;
+  paragraphs: string[];
+  focus: string[];
+};
+
+// "Where our work comes to life" — six environments, no client or
+// project names anywhere.
+export const environments: Environment[] = [
+  {
+    slug: "master-communities",
+    name: "Master Communities",
+    headline: "Keeping communities moving, every day.",
+    summary:
+      "Supporting large-scale communities with integrated facilities management that keeps everyday life running smoothly.",
+    paragraphs: [
+      "Managing a community means looking after more than buildings. It means supporting the places people call home, the shared spaces they use and the infrastructure they rely on every day.",
+      "Operon brings together technical, soft and support services across large-scale communities, coordinating multiple assets and service requirements through one integrated operation.",
+      "From planned maintenance and everyday service requests to common areas and community facilities, our teams work behind the scenes to keep everything running smoothly.",
+    ],
+    focus: [
+      "Asset reliability",
+      "Resident experience",
+      "Common areas",
+      "Community facilities",
+      "Planned and reactive maintenance",
+      "Service coordination",
+      "HSE and compliance",
+      "Consistent standards across multiple assets",
+    ],
+  },
+  {
+    slug: "residential",
+    name: "Residential",
+    headline: "Because home should simply work.",
+    summary:
+      "Creating safe, comfortable and well-maintained environments for residents and communities.",
+    paragraphs: [
+      "Residential facilities management is experienced differently. When something isn't working, residents notice.",
+      "Operon supports residential buildings and developments with reliable day-to-day facilities management focused on safety, comfort and the quality of the living environment.",
+      "Our teams take care of the details behind the scenes — from building systems and maintenance to cleanliness and shared spaces — helping create places residents can rely on every day.",
+    ],
+    focus: [
+      "Resident comfort",
+      "Building maintenance",
+      "Common areas",
+      "Cleaning and presentation",
+      "MEP systems",
+      "Planned and reactive maintenance",
+      "Safety and compliance",
+      "Service response",
+    ],
+  },
+  {
+    slug: "commercial",
+    name: "Commercial",
+    headline: "Keeping business moving.",
+    summary:
+      "Keeping workplaces and commercial assets reliable, efficient and ready for business.",
+    paragraphs: [
+      "Commercial environments need to perform without getting in the way of the people and businesses using them.",
+      "Operon manages the systems, services and everyday requirements that keep commercial assets safe, reliable and ready for business.",
+      "From engineering and preventive maintenance to cleaning and technology-enabled monitoring, our teams work around operational needs to minimise disruption and support consistent building performance.",
+    ],
+    focus: [
+      "Business continuity",
+      "Asset performance",
+      "Workplace environment",
+      "Preventive maintenance",
+      "MEP systems",
+      "Cleaning and presentation",
+      "Energy efficiency",
+      "HSE and compliance",
+    ],
+  },
+  {
+    slug: "retail",
+    name: "Retail",
+    headline: "Ready before the doors open. Performing long after they do.",
+    summary:
+      "Supporting customer-facing environments with responsive maintenance and consistent operational standards.",
+    paragraphs: [
+      "Retail environments are always on show. Cleanliness, comfort, safety and reliability all contribute to the experience of every customer who walks through the door.",
+      "Operon supports customer-facing environments with responsive facilities management designed around operating hours, footfall and the demands of day-to-day retail operations.",
+      "Our teams work behind the scenes so the environment in front of the customer remains safe, comfortable and ready.",
+    ],
+    focus: [
+      "Customer experience",
+      "Operational readiness",
+      "Cleaning and presentation",
+      "MEP reliability",
+      "Responsive maintenance",
+      "High-footfall areas",
+      "Safety and compliance",
+      "Service continuity",
+    ],
+  },
+  {
+    slug: "hospitality-leisure",
+    name: "Hospitality & Leisure",
+    headline: "The experience happens out front. We make it work behind the scenes.",
+    summary:
+      "Keeping high-footfall leisure and lifestyle destinations safe, presentable and guest-ready.",
+    paragraphs: [
+      "In hospitality and leisure environments, facilities management is part of the guest experience — even when guests never see it.",
+      "Operon supports high-footfall leisure and lifestyle destinations where presentation, comfort, reliability and operational readiness matter every day.",
+      "Our teams work around guest activity and operating schedules, maintaining the systems and spaces behind the experience while minimising disruption to the people enjoying it.",
+    ],
+    focus: [
+      "Guest experience",
+      "Operational readiness",
+      "Asset reliability",
+      "Presentation standards",
+      "High-footfall environments",
+      "Planned and reactive maintenance",
+      "Event support",
+      "Safety and compliance",
+    ],
+  },
+  {
+    slug: "specialised-facilities",
+    name: "Specialised Facilities",
+    headline: "Different environments demand different thinking.",
+    summary:
+      "Managing complex environments that demand specialist expertise, operational readiness and high standards of care.",
+    paragraphs: [
+      "Not every facility can be managed the same way.",
+      "Specialised environments can bring more complex assets, operating requirements and service expectations. Operon adapts its delivery model around the facility, combining technical expertise, operational planning and appropriate controls to support safe and reliable operations.",
+      "The approach starts with understanding the environment — then building the people, processes and services around what it actually needs.",
+    ],
+    focus: [
+      "Specialist operational requirements",
+      "Complex assets and systems",
+      "Technical expertise",
+      "Operational readiness",
+      "Risk and compliance",
+      "Planned maintenance",
+      "Service coordination",
+      "Tailored delivery models",
+    ],
+  },
+];
+
+// Operon-specific key numbers only — no group-level metrics here.
+// A fourth figure is TBC from the client.
 export const stats = [
-  { value: "300+", label: "Buildings managed across the UAE" },
   { value: "2008", label: "Established in the UAE" },
-  { value: "80+", label: "Years of UEM Edgenta Group experience" },
-  { value: "6", label: "Countries in the UEM Edgenta Group" },
+  { value: "17+", label: "Years of local FM experience" },
+  { value: "300+", label: "Buildings managed across the UAE" },
 ];
 
 export const credentials = [
@@ -183,29 +312,35 @@ export const credentials = [
   { name: "ASHRAE", detail: "" },
 ];
 
-// "Facilities in focus" — sector framework verbatim from the corporate deck.
-export const sectors = [
-  {
-    name: "Residential",
-    detail: "Communities and mixed-use developments",
-    slot: "case-studies/berkeley-place-sobha-hartland",
-  },
-  {
-    name: "Commercial",
-    detail: "Offices, retail and corporate assets",
-    slot: "case-studies/al-thuraya-tower",
-  },
-  {
-    name: "Hospitality & Leisure",
-    detail: "Golf clubs and lifestyle destinations",
-    slot: "portfolio/p5",
-  },
-  {
-    name: "Specialised Facilities",
-    detail: "High-profile and operationally complex environments",
-    slot: "portfolio/p6",
-  },
-];
+// Smart & Sustainable — Operon's own capabilities; no group statistics.
+export const smartSustainable = {
+  headline: "Smarter operations. Better-performing assets.",
+  paragraphs: [
+    "Operon combines hands-on facilities management with technology and data to improve how buildings are monitored, maintained and operated.",
+    "From real-time visibility and predictive insights to energy optimisation and resource efficiency, we help our clients make better operational decisions and build more resilient, sustainable environments.",
+  ],
+  points: [
+    { title: "Real-Time Monitoring", body: "Better visibility across assets and operations." },
+    { title: "Predictive Maintenance", body: "Using data to identify issues before they become disruptions." },
+    { title: "Energy & Resource Efficiency", body: "Supporting more efficient use of energy, water and resources." },
+    { title: "Smarter Asset Performance", body: "Data-led decisions that support reliability and long-term asset value." },
+  ],
+};
+
+// About Operon — official copy.
+export const about = {
+  headline: "Built on trust. Delivered with purpose.",
+  paragraphs: [
+    "Operon Middle East is a UAE-based integrated facilities management company built around one simple idea: places perform better when the people behind them do.",
+    "Our teams are on the ground every day, taking care of the environments people live in, work in and experience — from residential communities and commercial assets to complex, specialised facilities. We bring together people, engineering and technology to keep them running safely, efficiently and reliably.",
+  ],
+  global:
+    "Local where it matters. Global where it counts. As part of UEM Edgenta, we combine deep knowledge of the UAE market with international expertise, engineering capability and strong governance.",
+  mission:
+    "To keep the UAE's built environment working at its best — through people who care, standards that matter and delivery our clients can depend on every day.",
+  vision:
+    "Setting the regional standard for facilities management. Locally driven. Globally supported.",
+};
 
 // UEM Edgenta Group figures as at 31 December 2024 — verbatim from the deck.
 export const groupStats = [
@@ -216,16 +351,6 @@ export const groupStats = [
 ];
 export const groupStatsNote = "UEM Edgenta Group figures as at 31 December 2024.";
 
-// Group sustainability achievements — verbatim from the deck.
-export const sustainabilityStats = [
-  { value: "203M+ kWh", label: "Total electrical savings" },
-  { value: "37,200+ tCO₂", label: "Carbon emissions reduced" },
-  { value: "20+", label: "GBI & LEED-certified buildings" },
-  { value: "Up to 48%", label: "Reduction in electricity consumption" },
-];
-export const sustainabilityNote =
-  "UEM Edgenta Group sustainability achievements. USD value converted from MYR as at July 2026.";
-
 // Descriptors verbatim from the FIRST values lock-up artwork.
 export const values = [
   { letter: "F", title: "Future Focused", body: "We prepare for tomorrow's challenges, today." },
@@ -235,22 +360,17 @@ export const values = [
   { letter: "T", title: "True to Our Word", body: "We are guided by integrity to build trust." },
 ];
 
-export const portfolio = [
-  "Jumeirah Golf Estate",
-  "Topgolf Dubai",
-  "Emirates Golf Club Villas",
-  "Expo City",
-  "Buildings 25 & 49, Dubai Healthcare City",
-  "Cubix Residences",
-  "Maya 5 Residences",
-  "Foxhills",
-  "wasl District",
-  "Bahia Residence, Liwan 2",
-  "wasl Trio",
-  "wasl Business Central",
-  "wasl Oasis 3",
-  "North Heights Apartment, Al Nahda 1",
-];
+export const team = {
+  headline: "The people behind the performance.",
+  intro:
+    "Behind every well-run operation is a team that makes it happen. Meet the people leading Operon and supporting our teams across the UAE.",
+};
+
+export const careersIntro = {
+  headline: "Be part of what we're building.",
+  intro:
+    "We're always looking for people who take pride in what they do and want to grow with us. Explore our current opportunities and find your place at Operon.",
+};
 
 export const clients = [
   "wasl",
@@ -263,132 +383,4 @@ export const clients = [
   "KAIZEN",
   "Seddiqi Holding",
   "Brands For Less",
-];
-
-export type CaseStudy = {
-  slug: string;
-  title: string;
-  sector: string;
-  location: string;
-  scope: string[];
-  operationalFocus: string[];
-  valueDelivered: string;
-};
-
-export const caseStudies: CaseStudy[] = [
-  {
-    slug: "wasl-village",
-    title: "WASL Village",
-    sector: "Master Communities",
-    location: "Dubai",
-    scope: ["MEP & HVAC", "Housekeeping", "Landscaping", "Specialist equipment"],
-    operationalFocus: [
-      "Preventive maintenance",
-      "Residence experience",
-      "Event readiness",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Consistent operations, reliable asset performance and responsive support across 62 residential buildings and shared community facilities.",
-  },
-  {
-    slug: "emirates-golf-club-topgolf",
-    title: "Emirates Golf Club & Topgolf",
-    sector: "Leisure & Hospitality",
-    location: "Dubai",
-    scope: [
-      "MEP & HVAC",
-      "Housekeeping",
-      "Landscaping",
-      "Specialist equipment",
-      "Front-of-house support",
-    ],
-    operationalFocus: [
-      "Preventive maintenance",
-      "Guest experience",
-      "Event readiness",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Reliable operations, high presentation standards and seamless support during peak periods and major events.",
-  },
-  {
-    slug: "al-thuraya-tower",
-    title: "Al Thuraya Tower",
-    sector: "Commercial",
-    location: "Dubai",
-    scope: [
-      "MEP & HVAC",
-      "BMS",
-      "Elevators",
-      "Fire systems",
-      "Cleaning",
-      "Security",
-      "Front-of-house support",
-    ],
-    operationalFocus: [
-      "Preventive maintenance",
-      "Asset reliability",
-      "Occupant experience",
-      "Compliance",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Consistent building performance, well-maintained common areas and responsive operational support across a high-occupancy commercial tower.",
-  },
-  {
-    slug: "abu-dhabi-equestrian-club",
-    title: "Abu Dhabi Equestrian Club",
-    sector: "Specialised Facilities",
-    location: "Abu Dhabi",
-    scope: [
-      "MEP & HVAC",
-      "Cleaning",
-      "Landscaping",
-      "Pest control",
-      "Front-of-house support",
-      "Specialist facilities maintenance",
-    ],
-    operationalFocus: [
-      "Asset reliability",
-      "Event readiness",
-      "Safety and compliance",
-      "Guest experience",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Consistent operational support, high presentation standards and dependable facilities performance across equestrian, hospitality and public-facing areas.",
-  },
-  {
-    slug: "berkeley-place-sobha-hartland",
-    title: "Berkeley Place, Sobha Hartland",
-    sector: "High-end Residence",
-    location: "Dubai",
-    scope: ["MEP & HVAC", "Housekeeping", "Preventive maintenance", "Common area maintenance"],
-    operationalFocus: [
-      "Resident experience",
-      "Asset reliability",
-      "Building presentation",
-      "Safety and compliance",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Reliable building operations, immaculate shared spaces and responsive facilities support that preserve the quality, comfort and value of a premium residential development.",
-  },
-  {
-    slug: "brands-for-less",
-    title: "Brands For Less",
-    sector: "Retail",
-    location: "UAE-wide",
-    scope: ["MEP & HVAC", "Cleaning", "Lighting"],
-    operationalFocus: [
-      "Preventive maintenance",
-      "Store readiness",
-      "Safety and compliance",
-      "Customer experience",
-      "Rapid response",
-    ],
-    valueDelivered:
-      "Consistent store operations, well-maintained facilities and responsive support that help create a comfortable and reliable shopping environment.",
-  },
 ];

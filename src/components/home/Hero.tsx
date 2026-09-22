@@ -72,10 +72,10 @@ export default function Hero() {
                 Request a Proposal
               </Button>
               <Link
-                href="/case-studies"
+                href="/our-work"
                 className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white underline-offset-8 transition-colors hover:text-green hover:underline"
               >
-                Explore our projects
+                Explore our work
                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                   <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -100,7 +100,7 @@ export default function Hero() {
           className="hero-el relative border-t border-white/15 bg-black/30 backdrop-blur-sm"
           style={{ animationDelay: "0.85s" }}
         >
-          <Container className="grid grid-cols-2 gap-x-6 gap-y-7 py-7 sm:grid-cols-4 sm:py-8">
+          <Container className="grid grid-cols-1 gap-x-6 gap-y-7 py-7 sm:grid-cols-3 sm:py-8">
             {stats.map((s) => (
               <div key={s.label}>
                 <CountUp

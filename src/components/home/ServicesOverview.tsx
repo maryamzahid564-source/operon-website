@@ -35,7 +35,7 @@ export default function ServicesOverview() {
             const src = photoFor(`services/${s.slug}`);
             return (
               <Reveal key={s.slug} delay={(i % 3) * 80} className="h-full">
-                <Link href={`/services/${s.slug}`} className="group flex h-full flex-col">
+                <Link href={`/what-we-do/${s.slug}`} className="group flex h-full flex-col">
                   <div className="relative aspect-[4/3] overflow-hidden bg-mist">
                     {src && (
                       <Image
