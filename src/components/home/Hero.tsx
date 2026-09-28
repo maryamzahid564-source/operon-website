@@ -6,9 +6,19 @@ import CountUp from "@/components/ui/CountUp";
 import { stats, credentials } from "@/lib/content";
 import { photoFor, videoFor } from "@/lib/images";
 
+const slideAlts = [
+  "Operon technicians testing MEP plant equipment",
+  "Operon housekeeping team at work",
+  "Operon soft services in a corporate environment",
+  "Operon technician at a pump control panel",
+];
+
 export default function Hero() {
   const heroSrc = photoFor("home-hero");
   const heroVideo = videoFor("home-hero");
+  const slides = ["hero/h1", "hero/h2", "hero/h3", "hero/h4"]
+    .map((slot) => photoFor(slot))
+    .filter((s): s is string => Boolean(s));
 
   return (
     <>
@@ -25,6 +35,19 @@ export default function Hero() {
             >
               <source src={heroVideo} />
             </video>
+          ) : slides.length > 0 ? (
+            slides.map((src, i) => (
+              <div key={src} className="hero-slide absolute inset-0">
+                <Image
+                  src={src}
+                  alt={slideAlts[i] ?? "Operon teams at work"}
+                  fill
+                  sizes="100vw"
+                  priority={i === 0}
+                  className="object-cover"
+                />
+              </div>
+            ))
           ) : heroSrc ? (
             <Image
               src={heroSrc}
@@ -117,15 +140,24 @@ export default function Hero() {
       </section>
 
       <div className="border-b border-black/10 bg-mist">
-        <Container className="flex flex-wrap items-center gap-x-10 gap-y-3 py-5">
+        <Container className="flex flex-wrap items-center gap-x-10 gap-y-4 py-5">
           <span className="text-xs font-bold uppercase tracking-widest text-grey">
             Certifications &amp; memberships
           </span>
-          {credentials.map((c) => (
-            <span key={c.name} className="text-sm text-black/70">
-              {c.name}
-            </span>
-          ))}
+          <Image
+            src="/images/cert-bv.png"
+            alt="Certified ISO 9001, ISO 14001, ISO 45001 — Bureau Veritas"
+            width={640}
+            height={231}
+            className="h-11 w-auto"
+          />
+          {credentials
+            .filter((c) => !c.name.startsWith("ISO"))
+            .map((c) => (
+              <span key={c.name} className="text-sm text-black/70">
+                {c.name}
+              </span>
+            ))}
         </Container>
       </div>
     </>

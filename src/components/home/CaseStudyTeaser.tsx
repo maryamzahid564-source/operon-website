@@ -66,7 +66,7 @@ export default function CaseStudyTeaser() {
                     {e.name}
                   </h3>
                   <p className="mt-2 max-w-md text-sm leading-relaxed text-white/75">
-                    {e.summary}
+                    {e.line}
                   </p>
                   <span className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-white/0 transition-all duration-500 group-hover:text-white">
                     Explore

@@ -110,8 +110,15 @@ export default function Footer() {
                 href="https://www.uemedgenta.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/30 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-white/80 transition-colors hover:border-green hover:text-green"
+                className="inline-flex items-center gap-3 bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-black transition-opacity hover:opacity-85"
               >
+                <Image
+                  src="/images/edgenta-logo.png"
+                  alt="UEM Edgenta"
+                  width={420}
+                  height={226}
+                  className="h-6 w-auto"
+                />
                 Visit UEM Edgenta
                 <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
                   <path d="M3 9L9 3M9 3H4.5M9 3V7.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />

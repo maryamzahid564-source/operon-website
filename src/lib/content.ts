@@ -155,145 +155,54 @@ export type Environment = {
   slug: string;
   name: string;
   headline: string;
-  summary: string;
-  paragraphs: string[];
-  focus: string[];
+  line: string;
+  chips: [string, string, string];
 };
 
-// "Where our work comes to life" — six environments, no client or
-// project names anywhere.
+// "Where our work comes to life" — trimmed copy verbatim from the client
+// for the visual slider treatment. No client or project names.
 export const environments: Environment[] = [
   {
     slug: "master-communities",
     name: "Master Communities",
     headline: "Keeping communities moving, every day.",
-    summary:
-      "Supporting large-scale communities with integrated facilities management that keeps everyday life running smoothly.",
-    paragraphs: [
-      "Managing a community means looking after more than buildings. It means supporting the places people call home, the shared spaces they use and the infrastructure they rely on every day.",
-      "Operon brings together technical, soft and support services across large-scale communities, coordinating multiple assets and service requirements through one integrated operation.",
-      "From planned maintenance and everyday service requests to common areas and community facilities, our teams work behind the scenes to keep everything running smoothly.",
-    ],
-    focus: [
-      "Asset reliability",
-      "Resident experience",
-      "Common areas",
-      "Community facilities",
-      "Planned and reactive maintenance",
-      "Service coordination",
-      "HSE and compliance",
-      "Consistent standards across multiple assets",
-    ],
+    line: "Integrated services that keep communities running smoothly.",
+    chips: ["Asset Reliability", "Resident Experience", "Service Coordination"],
   },
   {
     slug: "residential",
     name: "Residential",
-    headline: "Because home should simply work.",
-    summary:
-      "Creating safe, comfortable and well-maintained environments for residents and communities.",
-    paragraphs: [
-      "Residential facilities management is experienced differently. When something isn't working, residents notice.",
-      "Operon supports residential buildings and developments with reliable day-to-day facilities management focused on safety, comfort and the quality of the living environment.",
-      "Our teams take care of the details behind the scenes — from building systems and maintenance to cleanliness and shared spaces — helping create places residents can rely on every day.",
-    ],
-    focus: [
-      "Resident comfort",
-      "Building maintenance",
-      "Common areas",
-      "Cleaning and presentation",
-      "MEP systems",
-      "Planned and reactive maintenance",
-      "Safety and compliance",
-      "Service response",
-    ],
+    headline: "Comfort, care and consistency at home.",
+    line: "Keeping residential environments safe, comfortable and well maintained.",
+    chips: ["Resident Experience", "Asset Care", "24/7 Support"],
   },
   {
     slug: "commercial",
     name: "Commercial",
-    headline: "Keeping business moving.",
-    summary:
-      "Keeping workplaces and commercial assets reliable, efficient and ready for business.",
-    paragraphs: [
-      "Commercial environments need to perform without getting in the way of the people and businesses using them.",
-      "Operon manages the systems, services and everyday requirements that keep commercial assets safe, reliable and ready for business.",
-      "From engineering and preventive maintenance to cleaning and technology-enabled monitoring, our teams work around operational needs to minimise disruption and support consistent building performance.",
-    ],
-    focus: [
-      "Business continuity",
-      "Asset performance",
-      "Workplace environment",
-      "Preventive maintenance",
-      "MEP systems",
-      "Cleaning and presentation",
-      "Energy efficiency",
-      "HSE and compliance",
-    ],
+    headline: "Supporting spaces where business happens.",
+    line: "Keeping workplaces efficient, reliable and ready for business.",
+    chips: ["Business Continuity", "Asset Performance", "Workplace Experience"],
   },
   {
     slug: "retail",
     name: "Retail",
-    headline: "Ready before the doors open. Performing long after they do.",
-    summary:
-      "Supporting customer-facing environments with responsive maintenance and consistent operational standards.",
-    paragraphs: [
-      "Retail environments are always on show. Cleanliness, comfort, safety and reliability all contribute to the experience of every customer who walks through the door.",
-      "Operon supports customer-facing environments with responsive facilities management designed around operating hours, footfall and the demands of day-to-day retail operations.",
-      "Our teams work behind the scenes so the environment in front of the customer remains safe, comfortable and ready.",
-    ],
-    focus: [
-      "Customer experience",
-      "Operational readiness",
-      "Cleaning and presentation",
-      "MEP reliability",
-      "Responsive maintenance",
-      "High-footfall areas",
-      "Safety and compliance",
-      "Service continuity",
-    ],
+    headline: "Keeping every customer experience running smoothly.",
+    line: "Supporting safe, reliable and welcoming retail environments.",
+    chips: ["Customer Experience", "Operational Readiness", "Safety"],
   },
   {
     slug: "hospitality-leisure",
     name: "Hospitality & Leisure",
-    headline: "The experience happens out front. We make it work behind the scenes.",
-    summary:
-      "Keeping high-footfall leisure and lifestyle destinations safe, presentable and guest-ready.",
-    paragraphs: [
-      "In hospitality and leisure environments, facilities management is part of the guest experience — even when guests never see it.",
-      "Operon supports high-footfall leisure and lifestyle destinations where presentation, comfort, reliability and operational readiness matter every day.",
-      "Our teams work around guest activity and operating schedules, maintaining the systems and spaces behind the experience while minimising disruption to the people enjoying it.",
-    ],
-    focus: [
-      "Guest experience",
-      "Operational readiness",
-      "Asset reliability",
-      "Presentation standards",
-      "High-footfall environments",
-      "Planned and reactive maintenance",
-      "Event support",
-      "Safety and compliance",
-    ],
+    headline: "Service that works around the guest experience.",
+    line: "Keeping hospitality and leisure environments performing at their best.",
+    chips: ["Guest Experience", "Event Readiness", "Asset Care"],
   },
   {
     slug: "specialised-facilities",
     name: "Specialised Facilities",
-    headline: "Different environments demand different thinking.",
-    summary:
-      "Managing complex environments that demand specialist expertise, operational readiness and high standards of care.",
-    paragraphs: [
-      "Not every facility can be managed the same way.",
-      "Specialised environments can bring more complex assets, operating requirements and service expectations. Operon adapts its delivery model around the facility, combining technical expertise, operational planning and appropriate controls to support safe and reliable operations.",
-      "The approach starts with understanding the environment — then building the people, processes and services around what it actually needs.",
-    ],
-    focus: [
-      "Specialist operational requirements",
-      "Complex assets and systems",
-      "Technical expertise",
-      "Operational readiness",
-      "Risk and compliance",
-      "Planned maintenance",
-      "Service coordination",
-      "Tailored delivery models",
-    ],
+    headline: "Special environments need specialised care.",
+    line: "Tailored support for complex and specialist facilities.",
+    chips: ["Technical Expertise", "Compliance", "Operational Reliability"],
   },
 ];
 
@@ -373,14 +282,16 @@ export const careersIntro = {
 };
 
 export const clients = [
-  "wasl",
-  "Emirates Golf Club",
-  "Topgolf Dubai",
-  "ENBD REIT",
-  "Expo City Dubai",
-  "Jumeirah Golf Estates",
-  "Engineering Office (EO)",
-  "KAIZEN",
-  "Seddiqi Holding",
-  "Brands For Less",
+  { slug: "wasl", name: "wasl" },
+  { slug: "emirates-golf-club", name: "Emirates Golf Club" },
+  { slug: "topgolf-dubai", name: "Topgolf Dubai" },
+  { slug: "jumeirah-golf-estates", name: "Jumeirah Golf Estates" },
+  { slug: "abu-dhabi-equestrian-club", name: "Abu Dhabi Equestrian Club" },
+  { slug: "enbd-reit", name: "ENBD REIT" },
+  { slug: "engineering-office", name: "Engineering Office (EO)" },
+  { slug: "expo-city-dubai", name: "Expo City Dubai" },
+  { slug: "kaizen", name: "KAIZEN Asset Management" },
+  { slug: "brands-for-less", name: "Brands For Less" },
+  { slug: "edacom", name: "EDACOM" },
+  { slug: "al-rustamani", name: "Al Rustamani Owners Associations" },
 ];
