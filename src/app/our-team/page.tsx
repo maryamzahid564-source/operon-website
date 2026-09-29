@@ -35,7 +35,7 @@ export default function OurTeamPage() {
 
       <section className="bg-white py-14 sm:py-20">
         <Container>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid max-w-4xl grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3">
             {teamMembers.map((m, i) => {
               const src = photoFor(`team/${m.slug}`);
               return (

@@ -34,7 +34,7 @@ export default function TeamTeaser() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
           {featured.map((m, i) => {
             const src = photoFor(`team/${m.slug}`);
             return (
