@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 
 export default function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-green py-16 text-white sm:py-20">
+    <section className="relative overflow-hidden bg-green py-14 text-white sm:py-20">
       <Image
         src="/images/logo-icon-white.png"
         alt=""

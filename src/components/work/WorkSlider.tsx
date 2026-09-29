@@ -14,6 +14,7 @@ type Slide = Environment & { img: string | null };
 export default function WorkSlider({ slides }: { slides: Slide[] }) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
+  const paused = useRef(false);
 
   const go = useCallback(
     (next: number) => {
@@ -38,6 +39,16 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
     return () => window.removeEventListener("hashchange", fromHash);
   }, [slides]);
 
+  // Gentle auto-advance — pauses on hover, respects reduced motion, and
+  // restarts its clock after any manual navigation.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => {
+      if (!paused.current) go(index + 1);
+    }, 6500);
+    return () => clearInterval(t);
+  }, [index, go]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") go(index - 1);
@@ -52,6 +63,12 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
       aria-roledescription="carousel"
       aria-label="Environments we manage"
       className="relative h-[78svh] min-h-[540px] overflow-hidden bg-black"
+      onMouseEnter={() => {
+        paused.current = true;
+      }}
+      onMouseLeave={() => {
+        paused.current = false;
+      }}
       onTouchStart={(e) => {
         touchX.current = e.touches[0].clientX;
       }}

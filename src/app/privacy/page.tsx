@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="bg-white pb-14 pt-16 sm:pb-20 sm:pt-20 lg:pt-24">
       <Container>
-        <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+        <Reveal>
+        <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
           Privacy Policy
         </h1>
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-grey">
@@ -24,6 +26,7 @@ export default function PrivacyPage() {
           </a>
           .
         </p>
+        </Reveal>
       </Container>
     </section>
   );

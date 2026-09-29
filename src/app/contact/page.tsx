@@ -6,19 +6,19 @@ import RfqForm from "@/components/contact/RfqForm";
 export const metadata: Metadata = {
   title: "Contact & Request a Proposal",
   description:
-    "Request a facilities management proposal from Operon Middle East. Call +971 800 4145 or tell us about your assets — hard FM, soft FM, energy and technology across Dubai and the UAE.",
+    "Request a facilities management proposal from Operon Middle East. Call +971 800 4145 or tell us about your assets — integrated facilities management, engineering, soft services and smart FM across Dubai and the UAE.",
   alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-28">
+    <section className="bg-white pb-14 pt-16 sm:pb-20 sm:pt-20 lg:pt-24">
       <Container>
         <Reveal>
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
             Contact
           </p>
-          <h1 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
             Let&rsquo;s talk about your portfolio.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-grey">

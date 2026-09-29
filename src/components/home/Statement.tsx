@@ -5,7 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 // OME brand guidelines, set at display scale.
 export default function Statement() {
   return (
-    <section className="overflow-hidden bg-mist py-16 sm:py-24">
+    <section className="overflow-hidden bg-mist py-14 sm:py-20">
       <Container>
         <Reveal>
           <span className="mb-5 block h-0.5 w-12 bg-green" />

@@ -9,7 +9,7 @@ export default function NotFound() {
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
           404
         </p>
-        <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-6xl">
+        <h1 className="max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
           This page doesn&rsquo;t exist.
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-grey">
@@ -27,7 +27,7 @@ export default function NotFound() {
           href="/our-work"
           className="mt-2 text-sm font-medium text-grey transition-colors hover:text-green"
         >
-          Or browse our projects &rarr;
+          Or explore our work &rarr;
         </Link>
       </Container>
     </section>

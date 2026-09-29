@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Operon Middle East",
   },
   description:
-    "Integrated facilities management across Dubai and the UAE — hard FM, soft FM, energy management and smart building technology for 300+ buildings since 2008. Part of the UEM Edgenta Group.",
+    "Integrated facilities management across Dubai and the UAE — engineering, soft services, smart FM technology and sustainability solutions for 300+ buildings since 2008. Part of the UEM Edgenta Group.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
