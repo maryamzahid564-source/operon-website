@@ -1,12 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import { team } from "@/lib/content";
+import { teamMembers } from "@/lib/team";
+import { photoFor } from "@/lib/images";
 
-// "Meet the Team" — people-focused teaser; profiles and photography
-// arrive from OME with the shoot.
+// "Meet the Team" — people-focused teaser with the first four profiles.
 export default function TeamTeaser() {
+  const featured = teamMembers.slice(0, 4);
+
   return (
     <section className="bg-white py-14 sm:py-20">
       <Container>
@@ -31,22 +35,30 @@ export default function TeamTeaser() {
         </Reveal>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {[0, 1, 2, 3].map((i) => (
-            <Reveal key={i} delay={i * 70}>
-              <Link href="/our-team" className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-mist">
-                  <div className="absolute inset-x-6 bottom-6 space-y-2">
-                    <span className="block h-2 w-2/3 bg-black/[0.07]" />
-                    <span className="block h-2 w-1/2 bg-black/[0.07]" />
+          {featured.map((m, i) => {
+            const src = photoFor(`team/${m.slug}`);
+            return (
+              <Reveal key={m.slug} delay={i * 70}>
+                <Link href="/our-team" className="group block">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-mist">
+                    {src && (
+                      <Image
+                        src={src}
+                        alt={m.name}
+                        fill
+                        sizes="(min-width: 640px) 25vw, 50vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    )}
                   </div>
-                </div>
-                <p className="mt-3 text-sm font-bold text-black transition-colors group-hover:text-green">
-                  Profile coming soon
-                </p>
-                <p className="text-xs text-grey">Designation</p>
-              </Link>
-            </Reveal>
-          ))}
+                  <p className="mt-3 text-sm font-bold text-black transition-colors group-hover:text-green">
+                    {m.name}
+                  </p>
+                  {m.designation && <p className="text-xs text-grey">{m.designation}</p>}
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
 
         <div className="mt-8 sm:hidden">
