@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
+import Photo from "@/components/ui/Photo";
 import ApplyForm from "@/components/careers/ApplyForm";
 import { careersIntro } from "@/lib/content";
 import { vacancies, isOpen } from "@/lib/careers";
+import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Careers — Join Our Team at Operon Middle East",
@@ -30,6 +32,20 @@ export default function CareersPage() {
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-grey">
               {careersIntro.intro}
             </p>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="bg-white pt-12 sm:pt-14">
+        <Container>
+          <Reveal>
+            <Photo
+              src={photoFor("careers/team")}
+              alt="The Operon team together"
+              aspect="aspect-[21/9]"
+              className=""
+              sizes="(min-width: 1280px) 1216px, 100vw"
+            />
           </Reveal>
         </Container>
       </section>
