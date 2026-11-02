@@ -41,7 +41,7 @@ const menus: Menu[] = [
     match: "/our-work",
     items: environments.map((e) => ({ label: e.name, href: `/our-work#${e.slug}` })),
   },
-  { label: "Our Team", href: "/our-team", match: "/our-team" },
+  { label: "Executive Team", href: "/our-team", match: "/our-team" },
   { label: "Careers", href: "/careers", match: "/careers" },
   { label: "Contact", href: "/contact", match: "/contact" },
 ];

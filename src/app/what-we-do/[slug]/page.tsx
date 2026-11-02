@@ -1,10 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import Photo from "@/components/ui/Photo";
 import CtaBanner from "@/components/home/CtaBanner";
 import { services } from "@/lib/content";
 import { photoFor } from "@/lib/images";
@@ -43,6 +43,7 @@ export default async function ServicePage({
   if (!service) notFound();
 
   const otherServices = services.filter((s) => s.slug !== service.slug);
+  const heroImg = photoFor(`services/${service.slug}`);
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -64,31 +65,40 @@ export default async function ServicePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
-      <section className="bg-white pt-16 sm:pt-20 lg:pt-24">
-        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <Reveal>
+      {/* Full-width image banner — same visual treatment as Our Work. */}
+      <section className="relative flex h-[62svh] min-h-[460px] items-end overflow-hidden bg-black">
+        {heroImg && (
+          <Image
+            src={heroImg}
+            alt={service.name}
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
+        <Container className="relative z-10 w-full pb-14 sm:pb-16">
+          <div className="hero-el">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
               What we do
             </p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl">
               {service.name}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-black sm:text-xl">
+            <p className="mt-5 max-w-2xl text-lg font-bold leading-snug text-white/95 sm:text-xl">
               {service.headline}
             </p>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-grey">
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-white pt-14 sm:pt-20">
+        <Container>
+          <Reveal>
+            <p className="max-w-3xl text-xl leading-relaxed text-black sm:text-2xl">
               {service.paragraphs[0]}
             </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <Photo
-              src={photoFor(`services/${service.slug}`)}
-              alt={service.name}
-              aspect="aspect-[4/5] max-h-[640px]"
-              className=""
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              priority
-            />
           </Reveal>
         </Container>
       </section>

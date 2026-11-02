@@ -1,17 +1,35 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { Environment } from "@/lib/content";
 
-type Slide = Environment & { img: string | null };
+export type ShowcaseSlide = {
+  slug: string;
+  name: string;
+  headline: string;
+  line: string;
+  chips: string[];
+  img: string | null;
+  href?: string;
+  /** Shorter label for the top tab bar; falls back to name. */
+  tab?: string;
+};
+
+type Props = {
+  slides: ShowcaseSlide[];
+  ariaLabel: string;
+  /** Rendered as a button on each slide when the slide has an href. */
+  linkLabel?: string;
+};
 
 /**
- * Full-width environment slider — image and content change together with
- * the left/right arrows. Syncs with the URL hash so nav dropdown links
- * (/our-work#retail) open the matching slide.
+ * Full-width showcase slider — image and content change together with the
+ * left/right arrows. Syncs with the URL hash so deep links (/our-work#retail)
+ * open the matching slide. Used for both Our Work environments and the
+ * What We Do services.
  */
-export default function WorkSlider({ slides }: { slides: Slide[] }) {
+export default function WorkSlider({ slides, ariaLabel, linkLabel }: Props) {
   const [index, setIndex] = useState(0);
   const touchX = useRef<number | null>(null);
   const paused = useRef(false);
@@ -61,7 +79,7 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
   return (
     <section
       aria-roledescription="carousel"
-      aria-label="Environments we manage"
+      aria-label={ariaLabel}
       className="relative h-[78svh] min-h-[540px] overflow-hidden bg-black"
       onMouseEnter={() => {
         paused.current = true;
@@ -124,6 +142,18 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
               <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-white/70">
                 {s.chips.join("  ·  ")}
               </p>
+              {s.href && linkLabel && (
+                <Link
+                  href={s.href}
+                  tabIndex={i === index ? 0 : -1}
+                  className="mt-7 inline-flex items-center gap-3 border border-white/40 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-all hover:border-green hover:bg-green"
+                >
+                  {linkLabel}
+                  <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                    <path d="M1 5H13M13 5L9 1M13 5L9 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -133,7 +163,7 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
       <div className="absolute bottom-16 right-6 z-10 flex gap-3 sm:bottom-20 sm:right-8 lg:right-12">
         <button
           onClick={() => go(index - 1)}
-          aria-label="Previous environment"
+          aria-label="Previous slide"
           className="flex h-12 w-12 items-center justify-center border border-white/40 text-white transition-all hover:border-green hover:bg-green"
         >
           <svg width="16" height="12" viewBox="0 0 14 10" fill="none" className="rotate-180">
@@ -142,7 +172,7 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
         </button>
         <button
           onClick={() => go(index + 1)}
-          aria-label="Next environment"
+          aria-label="Next slide"
           className="flex h-12 w-12 items-center justify-center border border-white/40 text-white transition-all hover:border-green hover:bg-green"
         >
           <svg width="16" height="12" viewBox="0 0 14 10" fill="none">
@@ -151,7 +181,7 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
         </button>
       </div>
 
-      {/* Environment tabs */}
+      {/* Slide tabs */}
       <div className="absolute inset-x-0 top-0 z-10 hidden border-b border-white/15 lg:block">
         <div className="mx-auto flex w-full max-w-7xl px-6 sm:px-8 lg:px-12">
           {slides.map((s, i) => (
@@ -165,7 +195,7 @@ export default function WorkSlider({ slides }: { slides: Slide[] }) {
                   : "text-white/50 after:scale-x-0 hover:text-white/80"
               }`}
             >
-              {s.name}
+              {s.tab ?? s.name}
             </button>
           ))}
         </div>

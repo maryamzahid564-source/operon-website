@@ -272,7 +272,7 @@ export const values = [
 export const team = {
   headline: "The people behind the performance.",
   intro:
-    "Behind every well-run operation is a team that makes it happen. Meet the people leading Operon and supporting our teams across the UAE.",
+    "Behind every well-run operation is a team that makes it happen. Meet the executive team leading Operon and supporting our people across the UAE.",
 };
 
 export const careersIntro = {

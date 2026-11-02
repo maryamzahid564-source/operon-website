@@ -8,9 +8,9 @@ import { teamMembers } from "@/lib/team";
 import { photoFor } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Our Team — Operon Middle East",
+  title: "Executive Team — Operon Middle East",
   description:
-    "Meet the people leading Operon and supporting our teams across the UAE.",
+    "Meet the executive team leading Operon and supporting our teams across the UAE.",
   alternates: { canonical: "/our-team" },
 };
 
@@ -21,7 +21,7 @@ export default function OurTeamPage() {
         <Container>
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              Our team
+              Executive team
             </p>
             <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
               {team.headline}
@@ -35,7 +35,7 @@ export default function OurTeamPage() {
 
       <section className="bg-white py-14 sm:py-20">
         <Container>
-          <div className="grid max-w-4xl grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3">
+          <div className="grid max-w-4xl grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4">
             {teamMembers.map((m, i) => {
               const src = photoFor(`team/${m.slug}`);
               return (

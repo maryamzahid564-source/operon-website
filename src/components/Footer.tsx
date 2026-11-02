@@ -7,7 +7,7 @@ const columns = [
     heading: "Company",
     links: [
       { label: "About Us", href: "/about" },
-      { label: "Meet the Team", href: "/our-team" },
+      { label: "Executive Team", href: "/our-team" },
       { label: "Join Our Team", href: "/careers" },
     ],
   },

@@ -7,9 +7,11 @@ import { team } from "@/lib/content";
 import { teamMembers } from "@/lib/team";
 import { photoFor } from "@/lib/images";
 
-// "Meet the Team" — people-focused teaser with the first four profiles.
+// Executive team teaser — the first four profiles that have photography.
 export default function TeamTeaser() {
-  const featured = teamMembers.slice(0, 4);
+  const featured = teamMembers
+    .filter((m) => photoFor(`team/${m.slug}`))
+    .slice(0, 4);
 
   return (
     <section className="bg-white py-14 sm:py-20">
@@ -19,7 +21,7 @@ export default function TeamTeaser() {
             <div className="max-w-2xl">
               <span className="mb-5 block h-0.5 w-12 bg-green" />
               <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-                Meet the team
+                Executive team
               </p>
               <h2 className="mt-5 text-2xl font-bold leading-tight tracking-tight text-black sm:text-3xl">
                 {team.headline}
@@ -29,7 +31,7 @@ export default function TeamTeaser() {
               </p>
             </div>
             <Button href="/our-team" variant="outline" className="hidden sm:inline-flex">
-              Meet the Team
+              Meet the Executive Team
             </Button>
           </div>
         </Reveal>
@@ -63,7 +65,7 @@ export default function TeamTeaser() {
 
         <div className="mt-8 sm:hidden">
           <Button href="/our-team" variant="outline">
-            Meet the Team
+            Meet the Executive Team
           </Button>
         </div>
       </Container>

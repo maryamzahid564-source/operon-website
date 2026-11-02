@@ -39,7 +39,7 @@ export default function OurWorkPage() {
         </Container>
       </section>
 
-      <WorkSlider slides={slides} />
+      <WorkSlider slides={slides} ariaLabel="Environments we manage" />
 
       <CtaBanner />
     </>
