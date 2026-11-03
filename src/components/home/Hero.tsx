@@ -151,8 +151,15 @@ export default function Hero() {
             height={231}
             className="h-11 w-auto"
           />
+          <Image
+            src="/images/cert-bicsc.png"
+            alt="BICSc — The British Institute of Cleaning Science, Corporate Member"
+            width={1372}
+            height={390}
+            className="h-9 w-auto"
+          />
           {credentials
-            .filter((c) => !c.name.startsWith("ISO"))
+            .filter((c) => !c.name.startsWith("ISO") && c.name !== "BICSc")
             .map((c) => (
               <span key={c.name} className="text-sm text-black/70">
                 {c.name}
