@@ -152,6 +152,13 @@ export default function Hero() {
             className="h-11 w-auto"
           />
           <Image
+            src="/images/cert-mefma.png"
+            alt="MEFMA — Middle East Facility Management Association, Member"
+            width={423}
+            height={473}
+            className="h-12 w-auto"
+          />
+          <Image
             src="/images/cert-bicsc.png"
             alt="BICSc — The British Institute of Cleaning Science, Corporate Member"
             width={1372}
@@ -159,7 +166,7 @@ export default function Hero() {
             className="h-9 w-auto"
           />
           {credentials
-            .filter((c) => !c.name.startsWith("ISO") && c.name !== "BICSc")
+            .filter((c) => !c.name.startsWith("ISO") && c.name !== "BICSc" && c.name !== "MEFMA")
             .map((c) => (
               <span key={c.name} className="text-sm text-black/70">
                 {c.name}
