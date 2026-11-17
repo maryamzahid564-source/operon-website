@@ -35,18 +35,18 @@ export default function OurTeamPage() {
 
       <section className="bg-white py-14 sm:py-20">
         <Container>
-          <div className="grid max-w-4xl grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-4">
+          <div className="mx-auto grid max-w-3xl grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3">
             {teamMembers.map((m, i) => {
               const src = photoFor(`team/${m.slug}`);
               return (
-                <Reveal key={m.slug} delay={(i % 4) * 70}>
-                  <div className="group relative aspect-[3/4] overflow-hidden bg-mist">
+                <Reveal key={m.slug} delay={(i % 3) * 70}>
+                  <div className="group relative aspect-[3/4] overflow-hidden bg-white ring-1 ring-black/5">
                     {src && (
                       <Image
                         src={src}
                         alt={m.name}
                         fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                        sizes="(min-width: 640px) 33vw, 50vw"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                       />
                     )}

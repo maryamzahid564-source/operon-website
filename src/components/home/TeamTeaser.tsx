@@ -42,7 +42,7 @@ export default function TeamTeaser() {
             return (
               <Reveal key={m.slug} delay={i * 70}>
                 <Link href="/our-team" className="group block">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-mist">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white ring-1 ring-black/5">
                     {src && (
                       <Image
                         src={src}

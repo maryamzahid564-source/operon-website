@@ -19,27 +19,32 @@ export default function AboutPage() {
   return (
     <>
       <section id="about" className="scroll-mt-28 bg-white pt-16 sm:pt-20 lg:pt-24">
-        <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
-              Who we are
-            </p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
-              {about.headline}
-            </h1>
-            {about.paragraphs.map((p) => (
-              <p key={p.slice(0, 24)} className="mt-5 max-w-xl text-base leading-relaxed text-grey">
-                {p}
+        <Container>
+          <div className="grid grid-cols-1 gap-x-14 gap-y-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+            <Reveal>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-green">
+                Who we are
               </p>
-            ))}
-          </Reveal>
-          <Reveal delay={100}>
+              <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight text-black sm:text-5xl">
+                {about.headline}
+              </h1>
+            </Reveal>
+            <Reveal delay={100}>
+              {about.paragraphs.map((p) => (
+                <p key={p.slice(0, 24)} className="mt-5 text-base leading-relaxed text-grey first:mt-0">
+                  {p}
+                </p>
+              ))}
+            </Reveal>
+          </div>
+          {/* Full photo at its native 3:2 ratio — nothing cropped away. */}
+          <Reveal delay={150} className="mt-12 sm:mt-14">
             <Photo
               src={photoFor("about-team") ?? photoFor("environments/master-communities")}
               alt="Operon teams at work across the UAE"
-              aspect="aspect-[4/5] max-h-[640px]"
+              aspect="aspect-[3/2]"
               className=""
-              sizes="(min-width: 1024px) 50vw, 100vw"
+              sizes="(min-width: 1280px) 1216px, 100vw"
               priority
             />
           </Reveal>
