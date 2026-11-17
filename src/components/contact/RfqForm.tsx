@@ -44,12 +44,23 @@ export default function RfqForm() {
       website: formData.get("website"),
     };
 
-    // Static review builds have no API — acknowledge the submission client-side.
+    // Static builds submit to Netlify Forms (collected in the site dashboard).
     if (process.env.NEXT_PUBLIC_STATIC_PREVIEW === "1") {
-      await new Promise((r) => setTimeout(r, 600));
-      setStatus("success");
-      form.reset();
-      setSelectedServices([]);
+      try {
+        const body = new URLSearchParams();
+        formData.forEach((v, k) => body.append(k, String(v)));
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        setStatus("success");
+        form.reset();
+        setSelectedServices([]);
+      } catch {
+        setStatus("error");
+      }
       return;
     }
 
@@ -80,7 +91,15 @@ export default function RfqForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form
+      name="rfq"
+      data-netlify="true"
+      data-netlify-honeypot="website"
+      onSubmit={handleSubmit}
+      className="space-y-6"
+    >
+      <input type="hidden" name="form-name" value="rfq" />
+      <input type="hidden" name="services" value={selectedServices.join(", ")} />
       {/* Honeypot — hidden from real users and assistive tech; bots that fill it are dropped server-side. */}
       <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
         <label htmlFor="website">Website</label>

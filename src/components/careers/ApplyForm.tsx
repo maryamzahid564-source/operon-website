@@ -17,10 +17,22 @@ export default function ApplyForm({ position }: { position?: string }) {
     const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
 
+    // Static builds submit to Netlify Forms (collected in the site dashboard).
     if (process.env.NEXT_PUBLIC_STATIC_PREVIEW === "1") {
-      await new Promise((r) => setTimeout(r, 600));
-      setStatus("success");
-      form.reset();
+      try {
+        const body = new URLSearchParams();
+        Object.entries(data).forEach(([k, v]) => body.append(k, String(v)));
+        const res = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: body.toString(),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        setStatus("success");
+        form.reset();
+      } catch {
+        setStatus("error");
+      }
       return;
     }
 
@@ -50,7 +62,14 @@ export default function ApplyForm({ position }: { position?: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid grid-cols-1 gap-7 sm:grid-cols-2">
+    <form
+      name="apply"
+      data-netlify="true"
+      data-netlify-honeypot="website"
+      onSubmit={onSubmit}
+      className="grid grid-cols-1 gap-7 sm:grid-cols-2"
+    >
+      <input type="hidden" name="form-name" value="apply" />
       {/* Honeypot */}
       <div className="hidden" aria-hidden>
         <label>
